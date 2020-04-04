@@ -46,7 +46,7 @@ class Program(QtWidgets.QMainWindow):
         #     3: "br.volume_tabung(r, t)",
         # }
 
-        x_r = 3
+        x_r = 4
 
         self.var_holder = {
             0: br.luas_permukaan_lingkaran(r),

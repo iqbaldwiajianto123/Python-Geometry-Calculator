@@ -75,6 +75,7 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.opt1_preset_page.setCurrentIndex(value)
         print(f"changed preset index to {value}")
 
+    # defining what calculate button when it checked
     def calc_checked(self):
         print("clicked")
 

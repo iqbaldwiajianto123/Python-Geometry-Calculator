@@ -29,9 +29,11 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.return_button0.clicked.connect(
             lambda: self.main_ui.kalkulator_page.setCurrentIndex(0))
 
+        # initialize user input
+        # self.main_ui.r_value0.valueChanged.connect(self.spinbox_value)
+
         # initialize calculate buttons
         self.main_ui.calculate0.setDisabled(False)
-        # self.main_ui.r_value0.valueChanged.connect()
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
 
         # initialize on preset update
@@ -51,15 +53,15 @@ class Program(QtWidgets.QMainWindow):
         #     3: "br.volume_tabung(r, t)",
         # }
 
-        self.r_value_holder = {
-            0: self.main_ui.r_value0,
-            1: self.main_ui.r_value1,
-        }
+        # self.r_value_holder = {
+        #     0: self.main_ui.r_value0,
+        #     1: self.main_ui.r_value1,
+        # }
 
-        self.t_value_holder = {
-            "a_2_1": self.main_ui.t_value1,
-            "a_2_2": self.main_ui.t_value2,
-        }
+        # self.t_value_holder = {
+        #     "a_2_1": self.main_ui.t_value1,
+        #     "a_2_2": self.main_ui.t_value2,
+        # }
 
         # self.r_var.arr("i")
 
@@ -84,15 +86,13 @@ class Program(QtWidgets.QMainWindow):
     def calc_checked(self):
         print("clicked")
 
-        print(self.calc_page)
+        try:
+            self.sb_value = int(self.main_ui.r_value0.text())
+            print(self.sb_value)
+        except:
+            print("data unavailable")
         self.c_page = self.calc_page
-        print(f"calc button on {self.c_page}")
-        self.var_holder = {
-            0: br.luas_permukaan_lingkaran(r=self.main_ui.r_value0),
-            1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
-            2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
-            3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
-        }
+        print(f"\ncalc button on {self.c_page}")
         self.calc_method(self.c_page)
 
     # defining track where calculate button on the index
@@ -100,6 +100,11 @@ class Program(QtWidgets.QMainWindow):
         self.calc_page = value
         print(self.calc_page)
         return self.calc_page
+
+    # defining get spinbox value
+    def spinbox_value(self, value):
+        print(f"sb_value = {value}")
+        self.sb_value = value
 
     # defining wether key is valid
     def valid_key(self, calc_page1):
@@ -116,8 +121,20 @@ class Program(QtWidgets.QMainWindow):
 
     # defining calling a key based from validated key
     def calc_method(self, r):
-        x = self.var_holder.get(r, lambda: "Invalid")
-        print(x)
+        x = self.var_holder.get(r, lambda: "Invalid")()
+
+        # sb_value = self.main_ui.r_value0.value()
+        # print(f"spinbox value = {sb_value}")
+        # print(x)
+        if self.sb_value > 0:
+            self.var_holder = {
+                0: br.luas_permukaan_lingkaran(r=sb_value),
+                1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
+                2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
+                3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
+            }
+        else:
+            print("error")
 
     # defining system exception
     def log_uncaught_exceptions(self, ex_cls, ex, tb):

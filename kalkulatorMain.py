@@ -31,6 +31,7 @@ class Program(QtWidgets.QMainWindow):
 
         # initialize user input
         # self.main_ui.r_value0.valueChanged.connect(self.spinbox_value)
+        self.main_ui.r_value0.textChanged.connect(self.spinbox_value)
 
         # initialize calculate buttons
         self.main_ui.calculate0.setDisabled(False)
@@ -45,26 +46,6 @@ class Program(QtWidgets.QMainWindow):
         # initialize event filter
         QtWidgets.qApp.installEventFilter(self)
 
-        # functions dict
-        # self.var_holder = {
-        #     0: "br.luas_permukaan_lingkaran(r)",
-        #     1: "br.luas_selimut_tabung(r, t)",
-        #     2: "br.luas_permukaan_tabung(r, t)",
-        #     3: "br.volume_tabung(r, t)",
-        # }
-
-        # self.r_value_holder = {
-        #     0: self.main_ui.r_value0,
-        #     1: self.main_ui.r_value1,
-        # }
-
-        # self.t_value_holder = {
-        #     "a_2_1": self.main_ui.t_value1,
-        #     "a_2_2": self.main_ui.t_value2,
-        # }
-
-        # self.r_var.arr("i")
-
         # self.var_holder = {
         #     0: br.luas_permukaan_lingkaran(r=self.main_ui.r_value0),
         #     1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
@@ -78,11 +59,11 @@ class Program(QtWidgets.QMainWindow):
 
     # defining preset changer
     def on_opt1_preset_change(self, value):
-        self.opt1_preseted = value
         self.main_ui.opt1_preset_page.setCurrentIndex(value)
-        print(f"changed preset index to {value}")
+        # self.opt1_preseted = value
+        # print(f"changed preset index to {value}")
 
-    # defining what calculate button when it checked
+    # defining what calculate button need to do when it clicked
     def calc_checked(self):
         print("clicked")
 
@@ -90,21 +71,21 @@ class Program(QtWidgets.QMainWindow):
             self.sb_value = int(self.main_ui.r_value0.text())
             print(self.sb_value)
         except:
-            print("data unavailable")
+            print(
+                "\nException on calc_checked(): Trying to get r_value0 value but failed\nReason: r_value0 contain nothing")
         self.c_page = self.calc_page
-        print(f"\ncalc button on {self.c_page}")
+        # print(f"\ncalc button on {self.c_page}")
         self.calc_method(self.c_page)
 
     # defining track where calculate button on the index
     def calc_method_track(self, value):
         self.calc_page = value
-        print(self.calc_page)
         return self.calc_page
 
     # defining get spinbox value
     def spinbox_value(self, value):
-        print(f"sb_value = {value}")
-        self.sb_value = value
+        # print(f"sb_value = {value}")
+        self.obj_value = int(self.main_ui.r_value0.text())
 
     # defining wether key is valid
     def valid_key(self, calc_page1):
@@ -121,20 +102,22 @@ class Program(QtWidgets.QMainWindow):
 
     # defining calling a key based from validated key
     def calc_method(self, r):
-        x = self.var_holder.get(r, lambda: "Invalid")()
-
-        # sb_value = self.main_ui.r_value0.value()
-        # print(f"spinbox value = {sb_value}")
-        # print(x)
-        if self.sb_value > 0:
-            self.var_holder = {
-                0: br.luas_permukaan_lingkaran(r=sb_value),
-                1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
-                2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
-                3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
-            }
-        else:
-            print("error")
+        try:
+            sb_value = self.sb_value
+            if sb_value > 0:
+                x = self.var_holder.get(r, lambda: "Invalid")()
+                self.var_holder = {
+                    0: br.luas_permukaan_lingkaran(r=sb_value),
+                    1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
+                    2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
+                    3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
+                }
+            else:
+                print(
+                    "sb_value doesn't meet requirment(sb_value > 0)")
+        except:
+            print(
+                "\nException on calc_method(): Error while running calc_method()\nReason: ")
 
     # defining system exception
     def log_uncaught_exceptions(self, ex_cls, ex, tb):
@@ -158,22 +141,6 @@ class Program(QtWidgets.QMainWindow):
                 self.main_ui.calculate0.click()
 
         return super().eventFilter(obj, event)
-
-
-"""     self.var_holder = {
-        0: "br.luas_permukaan_lingkaran(r)",
-        1: "br.luas_selimut_tabung(r, t)",
-        2: "br.luas_permukaan_tabung(r, t)",
-        3: "br.volume_tabung(r, t)",
-    } """
-
-
-"""     self.var_holder = {
-        0: br.luas_permukaan_lingkaran(r),
-        1: br.luas_selimut_tabung(r, t),
-        2: br.luas_permukaan_tabung(r, t),
-        3: br.volume_tabung(r, t)
-    } """
 
 
 if __name__ == '__main__':

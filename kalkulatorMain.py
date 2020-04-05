@@ -2,6 +2,7 @@
 # Back End For Kalkulator.py
 
 import sys
+from array import array as arr
 from kalkulator import *
 from fungsiBangunRuang import *
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -15,6 +16,8 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui = OptionWindow()
         self.main_ui.setupUi(self)
         self.test_variable = int()
+        self.calc_page = int()
+        self.var_holder = {}
 
         # initialize option button
         self.main_ui.tabung_opt.clicked.connect(
@@ -27,13 +30,9 @@ class Program(QtWidgets.QMainWindow):
             lambda: self.main_ui.kalkulator_page.setCurrentIndex(0))
 
         # initialize calculate buttons
+        self.main_ui.calculate0.setDisabled(False)
+        # self.main_ui.r_value0.valueChanged.connect()
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
-        # if self.main_ui.calculate0.clicked() == True:
-        #     self.main_ui.calculate0.clicked.connect(self.calc_checked)
-        #     self.main_ui.tabung_preset.currentIndexChanged.connect(
-        #         self.calc_checked)
-        # else:
-        #     print("error")
 
         # initialize on preset update
         self.main_ui.tabung_preset.currentIndexChanged.connect(
@@ -45,12 +44,12 @@ class Program(QtWidgets.QMainWindow):
         QtWidgets.qApp.installEventFilter(self)
 
         # functions dict
-        self.var_holder = {
-            0: "br.luas_permukaan_lingkaran(r)",
-            1: "br.luas_selimut_tabung(r, t)",
-            2: "br.luas_permukaan_tabung(r, t)",
-            3: "br.volume_tabung(r, t)",
-        }
+        # self.var_holder = {
+        #     0: "br.luas_permukaan_lingkaran(r)",
+        #     1: "br.luas_selimut_tabung(r, t)",
+        #     2: "br.luas_permukaan_tabung(r, t)",
+        #     3: "br.volume_tabung(r, t)",
+        # }
 
         self.r_value_holder = {
             0: self.main_ui.r_value0,
@@ -62,12 +61,18 @@ class Program(QtWidgets.QMainWindow):
             "a_2_2": self.main_ui.t_value2,
         }
 
+        # self.r_var.arr("i")
+
         # self.var_holder = {
-        #     0: br.luas_permukaan_lingkaran(r),
-        #     1: br.luas_selimut_tabung(r, t),
-        #     2: br.luas_permukaan_tabung(r, t),
-        #     3: br.volume_tabung(r, t)
+        #     0: br.luas_permukaan_lingkaran(r=self.main_ui.r_value0),
+        #     1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
+        #     2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
+        #     3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
         # }
+
+    def input_filter(self, object, button_name):
+        if len(object) > 0:
+            self.button_name.setDisabled(False)
 
     # defining preset changer
     def on_opt1_preset_change(self, value):
@@ -79,16 +84,21 @@ class Program(QtWidgets.QMainWindow):
     def calc_checked(self):
         print("clicked")
 
-        c_page = self.calc_page
-        print(f"calc button on {c_page}")
-        if self.valid_key(c_page):
-            self.calc_method(c_page)
-        else:
-            print("failed")
+        print(self.calc_page)
+        self.c_page = self.calc_page
+        print(f"calc button on {self.c_page}")
+        self.var_holder = {
+            0: br.luas_permukaan_lingkaran(r=self.main_ui.r_value0),
+            1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
+            2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
+            3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
+        }
+        self.calc_method(self.c_page)
 
     # defining track where calculate button on the index
     def calc_method_track(self, value):
         self.calc_page = value
+        print(self.calc_page)
         return self.calc_page
 
     # defining wether key is valid

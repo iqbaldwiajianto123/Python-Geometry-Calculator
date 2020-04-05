@@ -86,7 +86,7 @@ class Program(QtWidgets.QMainWindow):
         else:
             print("failed")
 
-    # defining calculate method track
+    # defining track where calculate button on the index
     def calc_method_track(self, value):
         self.calc_page = value
         return self.calc_page
@@ -104,7 +104,7 @@ class Program(QtWidgets.QMainWindow):
         except:
             return False
 
-    # defining send user input
+    # defining calling a key based from validated key
     def calc_method(self, r):
         x = self.var_holder.get(r, lambda: "Invalid")
         print(x)

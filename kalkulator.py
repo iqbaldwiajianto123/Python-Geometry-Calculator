@@ -221,17 +221,6 @@ class OptionWindow(object):
         self.copy_output0.setText("")
         self.copy_output0.setObjectName("copy_output0")
 
-        # DIKETAHUI
-        self.title2 = QtWidgets.QLabel(self.opt1_page)
-        self.title2.setGeometry(QtCore.QRect(350, 210, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Quicksand")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
-        self.title2.setFont(font)
-        self.title2.setObjectName("title2")
-
         # calculate0 BUTTON
         self.calculate0 = QtWidgets.QPushButton(self.opt1_page)
         self.calculate0.setGeometry(QtCore.QRect(340, 410, 101, 41))
@@ -247,6 +236,7 @@ class OptionWindow(object):
         # TABUNG PRESET
         self.tabung_preset = QtWidgets.QComboBox(self.opt1_page)
         self.tabung_preset.setGeometry(QtCore.QRect(240, 150, 321, 41))
+        self.tabung_preset.setMaxVisibleItems(4)
         preset_font = QtGui.QFont()
         preset_font.setFamily("Quicksand")
         preset_font.setPointSize(12)
@@ -276,6 +266,17 @@ class OptionWindow(object):
         ######################
         self.opt1_preset0 = QtWidgets.QWidget()
         self.opt1_preset0.setObjectName("opt1_preset0")
+
+        # DIKETAHUI
+        self.tracker0 = QtWidgets.QLabel(self.opt1_preset0)
+        self.tracker0.setGeometry(QtCore.QRect(350, 210, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Quicksand")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.tracker0.setFont(font)
+        self.tracker0.setObjectName("tracker0")
 
         # PI LABEL
         self.pi_label0 = QtWidgets.QLabel(self.opt1_preset0)
@@ -314,6 +315,17 @@ class OptionWindow(object):
         ######################
         self.opt1_preset1 = QtWidgets.QWidget()
         self.opt1_preset1.setObjectName("opt1_preset1")
+
+        # DIKETAHUI
+        self.tracker1 = QtWidgets.QLabel(self.opt1_preset1)
+        self.tracker1.setGeometry(QtCore.QRect(350, 210, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Quicksand")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.tracker1.setFont(font)
+        self.tracker1.setObjectName("tracker1")
 
         # PI LABEL
         self.pi_label1 = QtWidgets.QLabel(self.opt1_preset1)
@@ -366,6 +378,17 @@ class OptionWindow(object):
         self.opt1_preset2 = QtWidgets.QWidget()
         self.opt1_preset2.setObjectName("opt1_preset2")
 
+        # DIKETAHUI
+        self.tracker2 = QtWidgets.QLabel(self.opt1_preset2)
+        self.tracker2.setGeometry(QtCore.QRect(350, 210, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Quicksand")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.tracker2.setFont(font)
+        self.tracker2.setObjectName("tracker2")
+
         # PI LABEL
         self.pi_label2 = QtWidgets.QLabel(self.opt1_preset2)
         self.pi_label2.setGeometry(QtCore.QRect(165, 247, 71, 31))
@@ -411,8 +434,22 @@ class OptionWindow(object):
 
         self.opt1_preset_page.addWidget(self.opt1_preset2)
 
+        ######################
+        ###### PRESET 3 ######
+        ######################
         self.opt1_preset3 = QtWidgets.QWidget()
         self.opt1_preset3.setObjectName("opt1_preset3")
+
+        # DIKETAHUI
+        self.tracker3 = QtWidgets.QLabel(self.opt1_preset3)
+        self.tracker3.setGeometry(QtCore.QRect(350, 210, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Quicksand")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.tracker3.setFont(font)
+        self.tracker3.setObjectName("tracker3")
 
         self.test_label = QtWidgets.QLabel(self.opt1_preset3)
         self.test_label.setGeometry(QtCore.QRect(200, 200, 200, 26))
@@ -469,7 +506,10 @@ class OptionWindow(object):
             "MainWindow", "JARI-JARI DENGAN VOLUME TABUNG"))
         self.tabung_opt_label.setText(_translate(
             "MainWindow", "PERHITUNGAN TABUNG"))
-        self.title2.setText(_translate("MainWindow", "DIKETAHUI"))
+        self.tracker0.setText(_translate("MainWindow", "DIKETAHUI"))
+        self.tracker1.setText(_translate("MainWindow", "DIKETAHUI"))
+        self.tracker2.setText(_translate("MainWindow", "DIKETAHUI"))
+        self.tracker3.setText(_translate("MainWindow", "DIKETAHUI"))
         self.pi_label0.setText(_translate("MainWindow", "π ="))
         self.pi_label1.setText(_translate("MainWindow", "π ="))
         self.pi_label2.setText(_translate("MainWindow", "π ="))

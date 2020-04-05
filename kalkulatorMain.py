@@ -14,6 +14,7 @@ class Program(QtWidgets.QMainWindow):
         super().__init__()
         self.main_ui = OptionWindow()
         self.main_ui.setupUi(self)
+        self.test_variable = int()
 
         # initialize option button
         self.main_ui.tabung_opt.clicked.connect(
@@ -27,32 +28,28 @@ class Program(QtWidgets.QMainWindow):
 
         # initialize calculate buttons
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
-        # self.main_ui.calculate0.clicked.connect(self.valid_key)
+        # if self.main_ui.calculate0.clicked() == True:
+        #     self.main_ui.calculate0.clicked.connect(self.calc_checked)
+        #     self.main_ui.tabung_preset.currentIndexChanged.connect(
+        #         self.calc_checked)
+        # else:
+        #     print("error")
 
-        # initialize update on preset
+        # initialize on preset update
         self.main_ui.tabung_preset.currentIndexChanged.connect(
             self.on_opt1_preset_change)
-        # self.main_ui.tabung_preset.currentIndexChanged.connect(
-        #     self.calculate_method_track)
+        self.main_ui.tabung_preset.currentIndexChanged.connect(
+            self.calc_method_track)
 
         # initialize event filter
         QtWidgets.qApp.installEventFilter(self)
 
         # functions dict
-        # self.var_holder = {
-        #     0: "br.luas_permukaan_lingkaran(r)",
-        #     1: "br.luas_selimut_tabung(r, t)",
-        #     2: "br.luas_permukaan_tabung(r, t)",
-        #     3: "br.volume_tabung(r, t)",
-        # }
-
-        x_r = 4
-
         self.var_holder = {
-            0: br.luas_permukaan_lingkaran(r),
-            1: br.luas_selimut_tabung(r, t),
-            2: br.luas_permukaan_tabung(r, t),
-            3: br.volume_tabung(r, t)
+            0: "br.luas_permukaan_lingkaran(r)",
+            1: "br.luas_selimut_tabung(r, t)",
+            2: "br.luas_permukaan_tabung(r, t)",
+            3: "br.volume_tabung(r, t)",
         }
 
         self.r_value_holder = {
@@ -65,6 +62,13 @@ class Program(QtWidgets.QMainWindow):
             "a_2_2": self.main_ui.t_value2,
         }
 
+        # self.var_holder = {
+        #     0: br.luas_permukaan_lingkaran(r),
+        #     1: br.luas_selimut_tabung(r, t),
+        #     2: br.luas_permukaan_tabung(r, t),
+        #     3: br.volume_tabung(r, t)
+        # }
+
     # defining preset changer
     def on_opt1_preset_change(self, value):
         self.opt1_preseted = value
@@ -73,7 +77,8 @@ class Program(QtWidgets.QMainWindow):
 
     def calc_checked(self):
         print("clicked")
-        c_page = self.calc_method_track(2)
+
+        c_page = self.calc_page
         print(f"calc button on {c_page}")
         if self.valid_key(c_page):
             self.calc_method(c_page)
@@ -87,7 +92,6 @@ class Program(QtWidgets.QMainWindow):
 
     # defining wether key is valid
     def valid_key(self, calc_page1):
-        # self.key = int()
         self.calc_page1 = calc_page1
         try:
             if self.calc_page1 in self.var_holder:

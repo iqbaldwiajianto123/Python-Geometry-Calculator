@@ -19,8 +19,11 @@ class Program(QtWidgets.QMainWindow):
         self.calc_page = int()
         self.obj1_value = int()
         self.obj2_value = int()
+        self.obj3_value = int()
         self.one_param = bool()
         self.two_param = bool()
+        self.output_int = int()
+        self.output_str = str()
         self.var_holder1 = {}
         self.var_holder2 = {}
         self.r_var_holder = {}
@@ -49,14 +52,13 @@ class Program(QtWidgets.QMainWindow):
         # initialize calculate buttons
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
 
+        # intialize clipboard button
+
         # initialize on preset update
         self.main_ui.tabung_preset.currentIndexChanged.connect(
             self.on_opt1_preset_change)
         self.main_ui.tabung_preset.currentIndexChanged.connect(
             self.calc_method_track)
-
-        # intialize user output
-        self.main_ui.output0.setText("")
 
         # initialize event filter
         QtWidgets.qApp.installEventFilter(self)
@@ -70,10 +72,11 @@ class Program(QtWidgets.QMainWindow):
     def calc_checked(self):
         print("clicked")
         # print(self.calc_page)
-        # try:
         self.c_page = self.calc_page
         if self.obj1_value > 0:
             if self.obj2_value > 0:
+                if self.obj3_value > 0:
+                    pass
                 self.calc_method_2(self.c_page)
             else:
                 self.calc_method_1(self.c_page)
@@ -104,37 +107,33 @@ class Program(QtWidgets.QMainWindow):
 
     # defining calling a key based from index preset for 1 parameter functions
     def calc_method_1(self, key_function):
-        # try:
-        if self.obj1_value > 0 and self.obj2_value <= 0:
-            self.var_holder_1 = {
-                0: br.luas_permukaan_lingkaran(r=self.obj1_value),
-            }
-            x = self.var_holder_1.get(key_function, lambda: "Invalid")
-            print(x)
-        else:
-            print(
-                "sbr_value doesn't meet requirment(sb_value > 0)")
-        # except:
-        #     print(
-        #         "\nException on calc_method(): Error while running calc_method()\nReason: ")
+        self.var_holder_1 = {
+            0: br.luas_permukaan_lingkaran(r=self.obj1_value),
+        }
+        self.output_int = self.var_holder_1.get(
+            key_function, lambda: "Invalid")
+        self.output_str = str(self.output_int)
+
+        # intialize user output
+        self.main_ui.output0.setText(self.output_str)
+
+        print(self.output_str)
 
     # defining calling key based from index preset for 2 parameter functions
     def calc_method_2(self, key_function):
-        # try:
-        if self.obj1_value and self.obj2_value > 0:
-            self.var_holder_2 = {
-                1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
-                2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
-                3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),
-            }
-            x = self.var_holder_2.get(key_function, lambda: "Invalid")
-            print(x)
-        else:
-            print(
-                "sbr_value or sbt_value doesn't meet requirment(sb_value > 0)")
-        # except:
-        #     print(
-        #         "\nException on calc_method(): Error while running calc_method()\nReason: ")
+        self.var_holder_2 = {
+            1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
+            2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
+            3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),
+        }
+        self.output_int = self.var_holder_2.get(
+            key_function, lambda: "Invalid")
+        self.output_str = str(self.output_int)
+
+        # intialize user output
+        self.main_ui.output0.setText(self.output_str)
+
+        print(self.output_str)
 
     # defining system exception
     def log_uncaught_exceptions(self, ex_cls, ex, tb):

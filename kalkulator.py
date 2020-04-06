@@ -271,63 +271,6 @@ class OptionWindow(object):
         self.sub_label0.setFont(font)
         self.sub_label0.setObjectName("sub_label0")
 
-        # ######################
-        # ###### PRESET 0 ######
-        # ######################
-        # self.opt1_preset0 = QtWidgets.QWidget()
-        # self.opt1_preset0.setObjectName("opt1_preset0")
-
-        # # DIKETAHUI
-        # self.tracker0 = QtWidgets.QLabel(self.opt1_preset0)
-        # self.tracker0.setGeometry(QtCore.QRect(350, 210, 141, 31))
-        # font = QtGui.QFont()
-        # font.setFamily("Quicksand")
-        # font.setPointSize(11)
-        # font.setBold(True)
-        # font.setWeight(75)
-        # self.tracker0.setFont(font)
-        # self.tracker0.setObjectName("tracker0")
-
-        # # PI LABEL
-        # self.pi_label0 = QtWidgets.QLabel(self.opt1_preset0)
-        # self.pi_label0.setGeometry(QtCore.QRect(165, 247, 71, 31))
-        # self.pi_label0.setFont(label_font)
-        # self.pi_label0.setObjectName("pi_label0")
-
-        # # PI VALUE
-        # self.pi_value0 = QtWidgets.QLabel(self.opt1_preset0)
-        # self.pi_value0.setGeometry(QtCore.QRect(200, 255, 81, 21))
-        # self.pi_value0.setFont(label_font)
-        # self.pi_value0.setFrameShape(QtWidgets.QFrame.Panel)
-        # self.pi_value0.setFrameShadow(QtWidgets.QFrame.Plain)
-        # self.pi_value0.setText("")
-        # self.pi_value0.setObjectName("pi_value0")
-
-        # # r LABEL
-        # self.r_label0 = QtWidgets.QLabel(self.opt1_preset0)
-        # self.r_label0.setGeometry(QtCore.QRect(490, 250, 81, 21))
-        # self.r_label0.setFont(label_font)
-        # self.r_label0.setText("")
-        # self.r_label0.setObjectName("r_label0")
-
-        # # r VALUE
-        # # print("spinbox")
-        # self.r_value0 = QtWidgets.QSpinBox(self.opt1_preset0)
-        # self.r_value0.setGeometry(QtCore.QRect(530, 255, 121, 26))
-        # self.r_value0.setFont(label_font)
-        # self.r_value0.setObjectName("r_value0")
-        # # self.r_value0.setText("")
-        # # self.r_value0.setValidator(self.onlyInt)
-
-        # self.r_value = QtWidgets.QSpinBox(self.opt1_preset0)
-        # self.r_value.setGeometry(QtCore.QRect(530, 255, 121, 26))
-        # self.r_value.setFont(label_font)
-        # # self.r_value.setText("")
-        # self.r_value.setObjectName("r_value")
-        # # self.r_value.setValidator(self.onlyInt)
-
-        # self.opt1_preset_page.addWidget(self.opt1_preset0)
-
         ######################
         ###### PRESET 0 ######
         ######################
@@ -527,12 +470,6 @@ class OptionWindow(object):
         self.t_value3.setGeometry(QtCore.QRect(530, 286, 121, 26))
         self.t_value3.setFont(label_font)
         self.t_value3.setObjectName("t_value3")
-
-        self.test_label = QtWidgets.QLabel(self.opt1_preset3)
-        self.test_label.setGeometry(QtCore.QRect(200, 200, 200, 26))
-        self.test_label.setFont(label_font)
-        self.test_label.setText("THIS IS TEST")
-        self.test_label.setObjectName("test_label")
 
         self.opt1_preset_page.addWidget(self.opt1_preset3)
 

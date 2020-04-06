@@ -2,6 +2,7 @@
 # Back End For Kalkulator.py
 
 import sys
+import pyperclip
 from array import array as arr
 from kalkulator import *
 from fungsiBangunRuang import *
@@ -26,8 +27,7 @@ class Program(QtWidgets.QMainWindow):
         self.output_str = str()
         self.var_holder1 = {}
         self.var_holder2 = {}
-        self.r_var_holder = {}
-        self.t_var_holder = {}
+        self.var_holder3 = {}
 
         # initialize option button
         self.main_ui.tabung_opt.clicked.connect(
@@ -52,7 +52,8 @@ class Program(QtWidgets.QMainWindow):
         # initialize calculate buttons
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
 
-        # intialize clipboard button
+        # intialize copy button
+        self.main_ui.copy_output0.clicked.connect(self.copy_button)
 
         # initialize on preset update
         self.main_ui.tabung_preset.currentIndexChanged.connect(
@@ -68,6 +69,10 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.opt1_preset_page.setCurrentIndex(value)
         # print(f"changed preset index to {value}")
 
+    # defining copy button
+    def copy_button(self):
+        pyperclip.copy(self.output_str)
+
     # defining what calculate button need to do when it clicked
     def calc_checked(self):
         print("clicked")
@@ -76,7 +81,7 @@ class Program(QtWidgets.QMainWindow):
         if self.obj1_value > 0:
             if self.obj2_value > 0:
                 if self.obj3_value > 0:
-                    pass
+                    self.calc_method3(self.c_page)
                 self.calc_method_2(self.c_page)
             else:
                 self.calc_method_1(self.c_page)
@@ -119,9 +124,25 @@ class Program(QtWidgets.QMainWindow):
 
         print(self.output_str)
 
-    # defining calling key based from index preset for 2 parameter functions
+    # defining calling key based from index preset for 2 parameters functions
     def calc_method_2(self, key_function):
         self.var_holder_2 = {
+            1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
+            # 2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
+            3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),
+        }
+        self.output_int = self.var_holder_2.get(
+            key_function, lambda: "Invalid")
+        self.output_str = str(self.output_int)
+
+        # intialize user output
+        self.main_ui.output0.setText(self.output_str)
+
+        print(self.output_str)
+
+    # defining calling key based from index preset for 3 parameters functions
+    def calc_method_3(self, key_function):
+        self.var_holder3 = {
             1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
             2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
             3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),

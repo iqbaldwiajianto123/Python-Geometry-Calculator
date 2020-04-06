@@ -17,7 +17,12 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.setupUi(self)
         self.test_variable = int()
         self.calc_page = int()
-        self.var_holder = {}
+        self.obj1_value = int()
+        self.obj2_value = int()
+        self.var_holder1 = {}
+        self.var_holder2 = {}
+        self.r_var_holder = {}
+        self.t_var_holder = {}
 
         # initialize option button
         self.main_ui.tabung_opt.clicked.connect(
@@ -30,11 +35,16 @@ class Program(QtWidgets.QMainWindow):
             lambda: self.main_ui.kalkulator_page.setCurrentIndex(0))
 
         # initialize user input
-        # self.main_ui.r_value0.valueChanged.connect(self.spinbox_value)
-        self.main_ui.r_value0.textChanged.connect(self.spinbox_value)
+        self.main_ui.r_value0.valueChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value1.valueChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value2.valueChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value3.valueChanged.connect(self.on_sbr_value_change)
+
+        self.main_ui.t_value1.valueChanged.connect(self.on_sbr_value_change)
+        self.main_ui.t_value2.valueChanged.connect(self.on_sbr_value_change)
+        self.main_ui.t_value3.valueChanged.connect(self.on_sbr_value_change)
 
         # initialize calculate buttons
-        self.main_ui.calculate0.setDisabled(False)
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
 
         # initialize on preset update
@@ -46,78 +56,110 @@ class Program(QtWidgets.QMainWindow):
         # initialize event filter
         QtWidgets.qApp.installEventFilter(self)
 
-        # self.var_holder = {
-        #     0: br.luas_permukaan_lingkaran(r=self.main_ui.r_value0),
-        #     1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
-        #     2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
-        #     3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
-        # }
-
-    def input_filter(self, object, button_name):
-        if len(object) > 0:
-            self.button_name.setDisabled(False)
-
-    # defining preset changer
+    # defining on tabung preset change
     def on_opt1_preset_change(self, value):
         self.main_ui.opt1_preset_page.setCurrentIndex(value)
-        # self.opt1_preseted = value
         # print(f"changed preset index to {value}")
 
     # defining what calculate button need to do when it clicked
     def calc_checked(self):
-        print("clicked")
+        # print("clicked")
+        # print(self.calc_page)
+        # try:
+        if self.obj1_value > 0 and self.obj2_value <= 0:
+            one_param = True
+            self.status = True
+        else:
+            self.status = False
+            print("sbr_value are less than 0")
+        # if self.obj1_value and self.obj2_value > 0:
+        #     two_param = True
+        #     self.status = True
+        # else:
+        #     self.status = True
+        #    print("sbt_value are less than 0")
+        # except:
+        #     print(
+        #         "\nException on calc_checked(): Failed to get sbr_value value\nReason: sbr_value contain nothing")
+        #     self.status = False
+        #     print(self.status)
+        # try:
+        if self.obj1_value > 0 and self.obj2_value > 0:
+            two_params = True
+            self.status = True
+        # else:
+        #     self.status = False
+        #     print("sbt_value are less than 0")
+        # except:
+        #     print(
+        #         "\nException on calc_checked(): Failed to get sbr_value and sbt_value value\nReason: sbr_value and sbt_value contain nothing")
+        #     self.status = False
+        #     print(self.status)
+        if self.status:
+            print(f"status are {self.status}")
+            self.c_page = self.calc_page
+            print(f"c_page contain index {self.c_page}")
+            if one_param:
+                self.calc_method_1(self.c_page)
+            elif two_params:
+                self.calc_method_2(self.c_page)
+            else:
+                print("unknown method")
+        # else:
+        #     print("error")
 
-        try:
-            self.sb_value = int(self.main_ui.r_value0.text())
-            print(self.sb_value)
-        except:
-            print(
-                "\nException on calc_checked(): Trying to get r_value0 value but failed\nReason: r_value0 contain nothing")
-        self.c_page = self.calc_page
-        # print(f"\ncalc button on {self.c_page}")
-        self.calc_method(self.c_page)
+    # defining get spinbox r value
+    def on_sbr_value_change(self, value):
+        self.obj1_value = value
+        # print(type(self.obj1_value))
+        print(f"sbr_value = {self.obj1_value}")
+        return self.obj1_value
 
-    # defining track where calculate button on the index
+    # defining get spinbox t value
+    def on_sbt_value_change(self, value):
+        self.obj2_value = value
+        # print(type(self.obj2_value))
+        print(f"sbt_value = {self.obj2_value}")
+        return self.obj2_value
+
+    # defining where calculate button located on the preset index
     def calc_method_track(self, value):
         self.calc_page = value
         return self.calc_page
 
-    # defining get spinbox value
-    def spinbox_value(self, value):
-        # print(f"sb_value = {value}")
-        self.obj_value = int(self.main_ui.r_value0.text())
-
-    # defining wether key is valid
-    def valid_key(self, calc_page1):
-        self.calc_page1 = calc_page1
-        try:
-            if self.calc_page1 in self.var_holder:
-                print(f"calc button is on {self.calc_page1} page")
-                return True
-            else:
-                print(f"{self.calc_page1} is unknown preset")
-                return False
-        except:
-            return False
-
-    # defining calling a key based from validated key
-    def calc_method(self, r):
-        try:
-            sb_value = self.sb_value
-            if sb_value > 0:
-                x = self.var_holder.get(r, lambda: "Invalid")()
-                self.var_holder = {
-                    0: br.luas_permukaan_lingkaran(r=sb_value),
-                    1: br.luas_selimut_tabung(r=self.main_ui.r_value1, t=self.main_ui.t_value1),
-                    2: br.luas_permukaan_tabung(r=self.main_ui.r_value2, t=self.main_ui.t_value2),
-                    3: br.volume_tabung(r=self.main_ui.r_value3, t=self.main_ui.t_value3)
-                }
-            else:
-                print(
-                    "sb_value doesn't meet requirment(sb_value > 0)")
-        except:
+    # defining calling a key based from index preset for 1 parameter functions
+    def calc_method_1(self, key_function):
+        # try:
+        if self.obj1_value > 0 and self.obj2_value <= 0:
+            self.var_holder_1 = {
+                0: "br.luas_permukaan_lingkaran(r=self.obj1_value)",
+            }
+            x = self.var_holder_1.get(key_function, lambda: "Invalid")
+            print(x)
+        else:
             print(
-                "\nException on calc_method(): Error while running calc_method()\nReason: ")
+                "sbr_value doesn't meet requirment(sb_value > 0)")
+        # except:
+        #     print(
+        #         "\nException on calc_method(): Error while running calc_method()\nReason: ")
+
+    # defining calling key based from index preset for 2 parameter functions
+    def calc_method_2(self, key_function):
+        # try:
+        if self.obj1_value and self.obj2_value > 0:
+            self.var_holder_2 = {
+                1: "br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value)",
+                2: "br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value)",
+                3: "br.volume_tabung(r=self.obj1_value, t=self.obj2_value)",
+            }
+            x = self.var_holder_2.get(key_function, lambda: "Invalid")
+            print(x)
+        else:
+            print(
+                "sbr_value or sbt_value doesn't meet requirment(sb_value > 0)")
+        # except:
+        #     print(
+        #         "\nException on calc_method(): Error while running calc_method()\nReason: ")
 
     # defining system exception
     def log_uncaught_exceptions(self, ex_cls, ex, tb):

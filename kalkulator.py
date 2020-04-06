@@ -261,6 +261,63 @@ class OptionWindow(object):
         self.tabung_opt_label.setFont(title_font)
         self.tabung_opt_label.setObjectName("tabung_opt_label")
 
+        # ######################
+        # ###### PRESET 0 ######
+        # ######################
+        # self.opt1_preset0 = QtWidgets.QWidget()
+        # self.opt1_preset0.setObjectName("opt1_preset0")
+
+        # # DIKETAHUI
+        # self.tracker0 = QtWidgets.QLabel(self.opt1_preset0)
+        # self.tracker0.setGeometry(QtCore.QRect(350, 210, 141, 31))
+        # font = QtGui.QFont()
+        # font.setFamily("Quicksand")
+        # font.setPointSize(11)
+        # font.setBold(True)
+        # font.setWeight(75)
+        # self.tracker0.setFont(font)
+        # self.tracker0.setObjectName("tracker0")
+
+        # # PI LABEL
+        # self.pi_label0 = QtWidgets.QLabel(self.opt1_preset0)
+        # self.pi_label0.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        # self.pi_label0.setFont(label_font)
+        # self.pi_label0.setObjectName("pi_label0")
+
+        # # PI VALUE
+        # self.pi_value0 = QtWidgets.QLabel(self.opt1_preset0)
+        # self.pi_value0.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        # self.pi_value0.setFont(label_font)
+        # self.pi_value0.setFrameShape(QtWidgets.QFrame.Panel)
+        # self.pi_value0.setFrameShadow(QtWidgets.QFrame.Plain)
+        # self.pi_value0.setText("")
+        # self.pi_value0.setObjectName("pi_value0")
+
+        # # r LABEL
+        # self.r_label0 = QtWidgets.QLabel(self.opt1_preset0)
+        # self.r_label0.setGeometry(QtCore.QRect(490, 250, 81, 21))
+        # self.r_label0.setFont(label_font)
+        # self.r_label0.setText("")
+        # self.r_label0.setObjectName("r_label0")
+
+        # # r VALUE
+        # # print("spinbox")
+        # self.r_value0 = QtWidgets.QSpinBox(self.opt1_preset0)
+        # self.r_value0.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        # self.r_value0.setFont(label_font)
+        # self.r_value0.setObjectName("r_value0")
+        # # self.r_value0.setText("")
+        # # self.r_value0.setValidator(self.onlyInt)
+
+        # self.r_value = QtWidgets.QSpinBox(self.opt1_preset0)
+        # self.r_value.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        # self.r_value.setFont(label_font)
+        # # self.r_value.setText("")
+        # self.r_value.setObjectName("r_value")
+        # # self.r_value.setValidator(self.onlyInt)
+
+        # self.opt1_preset_page.addWidget(self.opt1_preset0)
+
         ######################
         ###### PRESET 0 ######
         ######################
@@ -451,6 +508,49 @@ class OptionWindow(object):
         self.tracker3.setFont(font)
         self.tracker3.setObjectName("tracker3")
 
+        # PI LABEL
+        self.pi_label3 = QtWidgets.QLabel(self.opt1_preset3)
+        self.pi_label3.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label3.setFont(label_font)
+        self.pi_label3.setObjectName("pi_label3")
+
+        # PI VALUE
+        self.pi_value3 = QtWidgets.QLabel(self.opt1_preset3)
+        self.pi_value3.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value3.setFont(label_font)
+        self.pi_value3.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value3.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value3.setText("")
+        self.pi_value3.setObjectName("pi_value3")
+
+        # r LABEL
+        self.r_label3 = QtWidgets.QLabel(self.opt1_preset3)
+        self.r_label3.setGeometry(QtCore.QRect(490, 250, 81, 21))
+        self.r_label3.setFont(label_font)
+        self.r_label3.setText("")
+        self.r_label3.setObjectName("r_label3")
+
+        # r VALUE
+        self.r_value3 = QtWidgets.QSpinBox(self.opt1_preset3)
+        self.r_value3.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        self.r_value3.setFont(label_font)
+        # self.r_value3.setText("")
+        self.r_value3.setObjectName("r_value3")
+        # self.r_value3.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label3 = QtWidgets.QLabel(self.opt1_preset3)
+        self.t_label3.setGeometry(QtCore.QRect(490, 276, 81, 21))
+        self.t_label3.setFont(label_font)
+        self.t_label3.setText("")
+        self.t_label3.setObjectName("t_label3")
+
+        # t VALUE
+        self.t_value3 = QtWidgets.QSpinBox(self.opt1_preset3)
+        self.t_value3.setGeometry(QtCore.QRect(530, 286, 121, 26))
+        self.t_value3.setFont(label_font)
+        self.t_value3.setObjectName("t_value3")
+
         self.test_label = QtWidgets.QLabel(self.opt1_preset3)
         self.test_label.setGeometry(QtCore.QRect(200, 200, 200, 26))
         self.test_label.setFont(label_font)
@@ -513,82 +613,19 @@ class OptionWindow(object):
         self.pi_label0.setText(_translate("MainWindow", "π ="))
         self.pi_label1.setText(_translate("MainWindow", "π ="))
         self.pi_label2.setText(_translate("MainWindow", "π ="))
+        self.pi_label3.setText(_translate("MainWindow", "π ="))
         self.r_label0.setText(_translate("MainWindow", "r ="))
         self.r_label1.setText(_translate("MainWindow", "r ="))
         self.r_label2.setText(_translate("MainWindow", "r = "))
+        self.r_label3.setText(_translate("MainWindow", "r = "))
         self.t_label1.setText(_translate("MainWindow", "t = "))
         self.t_label2.setText(_translate("MainWindow", "t = "))
+        self.t_label3.setText(_translate("MainWindow", "t = "))
         self.calculate0.setText(_translate("MainWindow", "HITUNG"))
 
 
-""" 
-class ControlMainWindow(QMainWindow):
-    def __init__(self, parent=None):
-        super(ControlMainWindow, self).__init__(parent)
-        self.ui1 = OptionWindow()
-        self.ui1.setupUi(self)
-        QtWidgets.qApp.installEventFilter(self)
-
-        self.ui1.tabung_opt.clicked.connect(
-            lambda: self.ui1.kalkulator_page.setCurrentIndex(1))
-        self.ui1.kerucut_opt.clicked.connect(
-            lambda: self.ui1.kalkulator_page.setCurrentIndex(2))
-        self.ui1.ball_opt.clicked.connect(
-            lambda: self.ui1.kalkulator_page.setCurrentIndex(3))
-        self.ui1.return_button0.clicked.connect(
-            lambda: self.ui1.kalkulator_page.setCurrentIndex(0))
-
-        self.ui1.tabung_preset.currentIndexChanged.connect(
-            self.on_opt1_preset_change)
-
-        self.ui1.calculate0.clicked.connect(self.on_calculate0)
-
-    def eventFilter(self, obj, event):
-        if event.type() == QtCore.QEvent.KeyPress:
-
-            if event.key() == QtCore.Qt.Key_Escape:
-                self.ui1.kalkulator_page.setCurrentIndex(0)
-                return 1
-            if event.key() == QtCore.Qt.Key_Enter:
-                self.ui1.calculate0.click()
-                return 1
-
-        return super().eventFilter(obj, event)
-
-    def on_calculate0(self, r):
-        self.r = self.ui1.r_value0.value()
-        self.ui1.output0.setText(br.luas_permukaan_lingkaran(r))
-
-    def on_opt1_preset_change(self, value):
-        self.ui1.opt1_preset_page.setCurrentIndex(value)
-        try:
-            self.r_page = value
-        except:
-            return False
-        print(self.r_page)
-
-    def log_uncaught_exceptions(self, ex_cls, ex, tb):
-        text = '{}: {}:\n'.format(ex_cls.__name__, ex)
-        import traceback
-        text += ''.join(traceback.format_tb(tb))
-
-        print(text)
-        self.ui1.QMessageBox.critical(None, 'Error', text)
-        quit()
-
-    sys.excepthook = log_uncaught_exceptions
-
- """
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    # MainWindow = QtWidgets.QMainWindow()
-    # ui = OptionWindow()
-    # ui.setupUi(MainWindow)
-    # tabung_opt = TabungGUI()
-    # MainWindow.show()
-    # w = MainWindow()
-    # my_sw = ControlMainWindow()
-    # my_sw.show()
     sys.exit(app.exec_())
 
 # π

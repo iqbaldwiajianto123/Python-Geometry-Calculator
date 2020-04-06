@@ -19,6 +19,8 @@ class Program(QtWidgets.QMainWindow):
         self.calc_page = int()
         self.obj1_value = int()
         self.obj2_value = int()
+        self.one_param = bool()
+        self.two_param = bool()
         self.var_holder1 = {}
         self.var_holder2 = {}
         self.r_var_holder = {}
@@ -40,9 +42,9 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.r_value2.valueChanged.connect(self.on_sbr_value_change)
         self.main_ui.r_value3.valueChanged.connect(self.on_sbr_value_change)
 
-        self.main_ui.t_value1.valueChanged.connect(self.on_sbr_value_change)
-        self.main_ui.t_value2.valueChanged.connect(self.on_sbr_value_change)
-        self.main_ui.t_value3.valueChanged.connect(self.on_sbr_value_change)
+        self.main_ui.t_value1.valueChanged.connect(self.on_sbt_value_change)
+        self.main_ui.t_value2.valueChanged.connect(self.on_sbt_value_change)
+        self.main_ui.t_value3.valueChanged.connect(self.on_sbt_value_change)
 
         # initialize calculate buttons
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
@@ -52,6 +54,9 @@ class Program(QtWidgets.QMainWindow):
             self.on_opt1_preset_change)
         self.main_ui.tabung_preset.currentIndexChanged.connect(
             self.calc_method_track)
+
+        # intialize user output
+        self.main_ui.output0.setText("")
 
         # initialize event filter
         QtWidgets.qApp.installEventFilter(self)
@@ -63,50 +68,20 @@ class Program(QtWidgets.QMainWindow):
 
     # defining what calculate button need to do when it clicked
     def calc_checked(self):
-        # print("clicked")
+        print("clicked")
         # print(self.calc_page)
         # try:
-        if self.obj1_value > 0 and self.obj2_value <= 0:
-            one_param = True
-            self.status = True
-        else:
-            self.status = False
-            print("sbr_value are less than 0")
-        # if self.obj1_value and self.obj2_value > 0:
-        #     two_param = True
-        #     self.status = True
-        # else:
-        #     self.status = True
-        #    print("sbt_value are less than 0")
-        # except:
-        #     print(
-        #         "\nException on calc_checked(): Failed to get sbr_value value\nReason: sbr_value contain nothing")
-        #     self.status = False
-        #     print(self.status)
-        # try:
-        if self.obj1_value > 0 and self.obj2_value > 0:
-            two_params = True
-            self.status = True
-        # else:
-        #     self.status = False
-        #     print("sbt_value are less than 0")
-        # except:
-        #     print(
-        #         "\nException on calc_checked(): Failed to get sbr_value and sbt_value value\nReason: sbr_value and sbt_value contain nothing")
-        #     self.status = False
-        #     print(self.status)
-        if self.status:
-            print(f"status are {self.status}")
-            self.c_page = self.calc_page
-            print(f"c_page contain index {self.c_page}")
-            if one_param:
-                self.calc_method_1(self.c_page)
-            elif two_params:
+        self.c_page = self.calc_page
+        if self.obj1_value > 0:
+            if self.obj2_value > 0:
                 self.calc_method_2(self.c_page)
             else:
-                print("unknown method")
-        # else:
-        #     print("error")
+                self.calc_method_1(self.c_page)
+            print(f"c_page contain index {self.c_page}")
+        else:
+            print("sbr_value are less than 0")
+        print(self.obj1_value)
+        print(self.obj2_value)
 
     # defining get spinbox r value
     def on_sbr_value_change(self, value):
@@ -132,7 +107,7 @@ class Program(QtWidgets.QMainWindow):
         # try:
         if self.obj1_value > 0 and self.obj2_value <= 0:
             self.var_holder_1 = {
-                0: "br.luas_permukaan_lingkaran(r=self.obj1_value)",
+                0: br.luas_permukaan_lingkaran(r=self.obj1_value),
             }
             x = self.var_holder_1.get(key_function, lambda: "Invalid")
             print(x)
@@ -148,9 +123,9 @@ class Program(QtWidgets.QMainWindow):
         # try:
         if self.obj1_value and self.obj2_value > 0:
             self.var_holder_2 = {
-                1: "br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value)",
-                2: "br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value)",
-                3: "br.volume_tabung(r=self.obj1_value, t=self.obj2_value)",
+                1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
+                2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
+                3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),
             }
             x = self.var_holder_2.get(key_function, lambda: "Invalid")
             print(x)

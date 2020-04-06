@@ -21,6 +21,8 @@ class Program(QtWidgets.QMainWindow):
         self.obj1_value = int()
         self.obj2_value = int()
         self.obj3_value = int()
+        self.obj1s_value = str()
+        self.obj2s_value = str()
         self.one_param = bool()
         self.two_param = bool()
         self.output_int = int()
@@ -39,15 +41,46 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.return_button0.clicked.connect(
             lambda: self.main_ui.kalkulator_page.setCurrentIndex(0))
 
-        # initialize user input
-        self.main_ui.r_value0.valueChanged.connect(self.on_sbr_value_change)
-        self.main_ui.r_value1.valueChanged.connect(self.on_sbr_value_change)
-        self.main_ui.r_value2.valueChanged.connect(self.on_sbr_value_change)
-        self.main_ui.r_value3.valueChanged.connect(self.on_sbr_value_change)
+        # # initialize user input
+        # self.main_ui.r_value0.valueChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value1.valueChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value2.valueChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value3.valueChanged.connect(self.on_sbr_value_change)
 
-        self.main_ui.t_value1.valueChanged.connect(self.on_sbt_value_change)
-        self.main_ui.t_value2.valueChanged.connect(self.on_sbt_value_change)
-        self.main_ui.t_value3.valueChanged.connect(self.on_sbt_value_change)
+        # self.main_ui.t_value1.valueChanged.connect(self.on_sbt_value_change)
+        # self.main_ui.t_value2.valueChanged.connect(self.on_sbt_value_change)
+        # self.main_ui.t_value3.valueChanged.connect(self.on_sbt_value_change)
+
+        # initialize r value user input
+        self.main_ui.r_value0.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value1.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value2.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value3.textChanged.connect(self.on_sbr_value_change)
+
+        self.main_ui.r_value4.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value5.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value6.textChanged.connect(self.on_sbr_value_change)
+
+        # intialize t value user input
+        self.main_ui.t_value1.textChanged.connect(self.on_sbt_value_change)
+        self.main_ui.t_value2.textChanged.connect(self.on_sbt_value_change)
+        self.main_ui.t_value3.textChanged.connect(self.on_sbt_value_change)
+
+        self.main_ui.t_value4.textChanged.connect(self.on_sbt_value_change)
+        self.main_ui.t_value5.textChanged.connect(self.on_sbt_value_change)
+        self.main_ui.t_value6.textChanged.connect(self.on_sbt_value_change)
+
+        # initialize luas selimut value user input
+        self.main_ui.r_value7.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value7.textChanged.connect(self.on_sbt_value_change)
+
+        # initialize luas permukaan value user input
+        self.main_ui.r_value8.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.t_value8.textChanged.connect(self.on_sbt_value_change)
+
+        # initialize volume value user input
+        self.main_ui.t_value9.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.t_value9.textChanged.connect(self.on_sbt_value_change)
 
         # initialize calculate buttons
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
@@ -80,8 +113,6 @@ class Program(QtWidgets.QMainWindow):
         self.c_page = self.calc_page
         if self.obj1_value > 0:
             if self.obj2_value > 0:
-                if self.obj3_value > 0:
-                    self.calc_method3(self.c_page)
                 self.calc_method_2(self.c_page)
             else:
                 self.calc_method_1(self.c_page)
@@ -93,16 +124,18 @@ class Program(QtWidgets.QMainWindow):
 
     # defining get spinbox r value
     def on_sbr_value_change(self, value):
-        self.obj1_value = value
-        # print(type(self.obj1_value))
-        print(f"sbr_value = {self.obj1_value}")
+        self.obj1s_value = value
+        self.obj1_value = int(self.obj1s_value)
+        x_type = type(self.obj1_value)
+        print(f"sbr_value = {self.obj1_value} is {x_type}")
         return self.obj1_value
 
     # defining get spinbox t value
     def on_sbt_value_change(self, value):
-        self.obj2_value = value
-        # print(type(self.obj2_value))
-        print(f"sbt_value = {self.obj2_value}")
+        self.obj2s_value = value
+        self.obj2_value = int(self.obj2s_value)
+        x_type = type(self.obj1_value)
+        print(f"sbt_value = {self.obj2_value} is {x_type}")
         return self.obj2_value
 
     # defining where calculate button located on the preset index
@@ -128,24 +161,14 @@ class Program(QtWidgets.QMainWindow):
     def calc_method_2(self, key_function):
         self.var_holder_2 = {
             1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
-            # 2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
-            3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),
-        }
-        self.output_int = self.var_holder_2.get(
-            key_function, lambda: "Invalid")
-        self.output_str = str(self.output_int)
-
-        # intialize user output
-        self.main_ui.output0.setText(self.output_str)
-
-        print(self.output_str)
-
-    # defining calling key based from index preset for 3 parameters functions
-    def calc_method_3(self, key_function):
-        self.var_holder3 = {
-            1: br.luas_selimut_tabung(r=self.obj1_value, t=self.obj2_value),
             2: br.luas_permukaan_tabung(r=self.obj1_value, t=self.obj2_value),
             3: br.volume_tabung(r=self.obj1_value, t=self.obj2_value),
+            4: abr.tinggi_dengan_ls_tabung(r=self.obj1_value, ls_tabung=self.obj2_value),
+            5: abr.tinggi_dengan_lp_tabung(r=self.obj1_value, lp_tabung=self.obj2_value),
+            6: abr.tinggi_dengan_volume_tabung(r=self.obj1_value, v_tabung=self.obj2_value),
+            7: abr.jari_jari_dengan_ls_tabung(t=self.obj2_value, ls_tabung=self.obj1_value),
+            8: abr.jari_jari_dengan_lp_tabung(t=self.obj2_value, lp_tabung=self.obj2_value),
+            9: abr.jari_jari_dengan_volume_tabung(t=self.obj2_value, v_tabung=self.obj2_value),
         }
         self.output_int = self.var_holder_2.get(
             key_function, lambda: "Invalid")

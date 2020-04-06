@@ -235,7 +235,7 @@ class OptionWindow(object):
 
         # TABUNG PRESET
         self.tabung_preset = QtWidgets.QComboBox(self.opt1_page)
-        self.tabung_preset.setGeometry(QtCore.QRect(240, 150, 321, 41))
+        self.tabung_preset.setGeometry(QtCore.QRect(210, 150, 381, 41))
         self.tabung_preset.setMaxVisibleItems(4)
         preset_font = QtGui.QFont()
         preset_font.setFamily("Quicksand")
@@ -294,18 +294,24 @@ class OptionWindow(object):
 
         # r LABEL
         self.r_label0 = QtWidgets.QLabel(self.opt1_preset0)
-        self.r_label0.setGeometry(QtCore.QRect(490, 250, 81, 21))
+        self.r_label0.setGeometry(QtCore.QRect(490, 240, 81, 35))
         self.r_label0.setFont(label_font)
         self.r_label0.setText("")
         self.r_label0.setObjectName("r_label0")
 
         # r VALUE
-        self.r_value0 = QtWidgets.QSpinBox(self.opt1_preset0)
-        self.r_value0.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        self.r_value0 = QtWidgets.QLineEdit(self.opt1_preset0)
+        self.r_value0.setGeometry(QtCore.QRect(530, 245, 121, 35))
         self.r_value0.setFont(label_font)
-        # self.r_value0.setText("")
         self.r_value0.setObjectName("r_value0")
-        # self.r_value0.setValidator(self.onlyInt)
+        self.r_value0.setValidator(self.onlyInt)
+
+        # self.r_value0 = QtWidgets.QSpinBox(self.opt1_preset0)
+        # self.r_value0.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value0.setFont(label_font)
+        # # self.r_value0.setText("")
+        # self.r_value0.setObjectName("r_value0")
+        # # self.r_value0.setValidator(self.onlyInt)
 
         self.opt1_preset_page.addWidget(self.opt1_preset0)
 
@@ -314,17 +320,6 @@ class OptionWindow(object):
         ######################
         self.opt1_preset1 = QtWidgets.QWidget()
         self.opt1_preset1.setObjectName("opt1_preset1")
-
-        # DIKETAHUI
-        self.tracker1 = QtWidgets.QLabel(self.opt1_preset1)
-        self.tracker1.setGeometry(QtCore.QRect(350, 210, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Quicksand")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
-        self.tracker1.setFont(font)
-        self.tracker1.setObjectName("tracker1")
 
         # PI LABEL
         self.pi_label1 = QtWidgets.QLabel(self.opt1_preset1)
@@ -343,31 +338,43 @@ class OptionWindow(object):
 
         # r LABEL
         self.r_label1 = QtWidgets.QLabel(self.opt1_preset1)
-        self.r_label1.setGeometry(QtCore.QRect(490, 250, 81, 21))
+        self.r_label1.setGeometry(QtCore.QRect(490, 240, 81, 35))
         self.r_label1.setFont(label_font)
         self.r_label1.setText("")
         self.r_label1.setObjectName("r_label1")
 
         # r VALUE
-        self.r_value1 = QtWidgets.QSpinBox(self.opt1_preset1)
-        self.r_value1.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        self.r_value1 = QtWidgets.QLineEdit(self.opt1_preset1)
+        self.r_value1.setGeometry(QtCore.QRect(530, 245, 121, 35))
         self.r_value1.setFont(label_font)
-        # self.r_value1.setText("")
         self.r_value1.setObjectName("r_value1")
-        # self.r_value1.setValidator(self.onlyInt)
+        self.r_value1.setValidator(self.onlyInt)
+
+        # self.r_value1 = QtWidgets.QSpinBox(self.opt1_preset1)
+        # self.r_value1.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value1.setFont(label_font)
+        # # self.r_value1.setText("")
+        # self.r_value1.setObjectName("r_value1")
+        # # self.r_value1.setValidator(self.onlyInt)
 
         # t LABEL
         self.t_label1 = QtWidgets.QLabel(self.opt1_preset1)
-        self.t_label1.setGeometry(QtCore.QRect(490, 276, 81, 21))
+        self.t_label1.setGeometry(QtCore.QRect(490, 290, 81, 35))
         self.t_label1.setFont(label_font)
         self.t_label1.setText("")
         self.t_label1.setObjectName("t_label1")
 
         # t VALUE
-        self.t_value1 = QtWidgets.QSpinBox(self.opt1_preset1)
-        self.t_value1.setGeometry(QtCore.QRect(530, 286, 121, 26))
+        self.t_value1 = QtWidgets.QLineEdit(self.opt1_preset1)
+        self.t_value1.setGeometry(QtCore.QRect(530, 292, 121, 35))
         self.t_value1.setFont(label_font)
         self.t_value1.setObjectName("t_value1")
+        self.t_value1.setValidator(self.onlyInt)
+
+        # self.t_value1 = QtWidgets.QSpinBox(self.opt1_preset1)
+        # self.t_value1.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value1.setFont(label_font)
+        # self.t_value1.setObjectName("t_value1")
 
         self.opt1_preset_page.addWidget(self.opt1_preset1)
 
@@ -394,31 +401,43 @@ class OptionWindow(object):
 
         # r LABEL
         self.r_label2 = QtWidgets.QLabel(self.opt1_preset2)
-        self.r_label2.setGeometry(QtCore.QRect(490, 250, 81, 21))
+        self.r_label2.setGeometry(QtCore.QRect(490, 240, 81, 35))
         self.r_label2.setFont(label_font)
         self.r_label2.setText("")
         self.r_label2.setObjectName("r_label2")
 
         # r VALUE
-        self.r_value2 = QtWidgets.QSpinBox(self.opt1_preset2)
-        self.r_value2.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        self.r_value2 = QtWidgets.QLineEdit(self.opt1_preset2)
+        self.r_value2.setGeometry(QtCore.QRect(530, 245, 121, 35))
         self.r_value2.setFont(label_font)
-        # self.r_value2.setText("")
         self.r_value2.setObjectName("r_value2")
-        # self.r_value2.setValidator(self.onlyInt)
+        self.r_value2.setValidator(self.onlyInt)
+
+        # self.r_value2 = QtWidgets.QSpinBox(self.opt1_preset2)
+        # self.r_value2.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value2.setFont(label_font)
+        # # self.r_value2.setText("")
+        # self.r_value2.setObjectName("r_value2")
+        # # self.r_value2.setValidator(self.onlyInt)
 
         # t LABEL
         self.t_label2 = QtWidgets.QLabel(self.opt1_preset2)
-        self.t_label2.setGeometry(QtCore.QRect(490, 276, 81, 21))
+        self.t_label2.setGeometry(QtCore.QRect(490, 290, 81, 35))
         self.t_label2.setFont(label_font)
         self.t_label2.setText("")
         self.t_label2.setObjectName("t_label2")
 
         # t VALUE
-        self.t_value2 = QtWidgets.QSpinBox(self.opt1_preset2)
-        self.t_value2.setGeometry(QtCore.QRect(530, 286, 121, 26))
+        self.t_value2 = QtWidgets.QLineEdit(self.opt1_preset2)
+        self.t_value2.setGeometry(QtCore.QRect(530, 292, 121, 35))
         self.t_value2.setFont(label_font)
         self.t_value2.setObjectName("t_value2")
+        self.t_value2.setValidator(self.onlyInt)
+
+        # self.t_value2 = QtWidgets.QSpinBox(self.opt1_preset2)
+        # self.t_value2.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value2.setFont(label_font)
+        # self.t_value2.setObjectName("t_value2")
 
         self.opt1_preset_page.addWidget(self.opt1_preset2)
 
@@ -445,33 +464,402 @@ class OptionWindow(object):
 
         # r LABEL
         self.r_label3 = QtWidgets.QLabel(self.opt1_preset3)
-        self.r_label3.setGeometry(QtCore.QRect(490, 250, 81, 21))
+        self.r_label3.setGeometry(QtCore.QRect(490, 240, 81, 35))
         self.r_label3.setFont(label_font)
         self.r_label3.setText("")
         self.r_label3.setObjectName("r_label3")
 
         # r VALUE
-        self.r_value3 = QtWidgets.QSpinBox(self.opt1_preset3)
-        self.r_value3.setGeometry(QtCore.QRect(530, 255, 121, 26))
+        self.r_value3 = QtWidgets.QLineEdit(self.opt1_preset3)
+        self.r_value3.setGeometry(QtCore.QRect(530, 245, 121, 35))
         self.r_value3.setFont(label_font)
-        # self.r_value3.setText("")
         self.r_value3.setObjectName("r_value3")
-        # self.r_value3.setValidator(self.onlyInt)
+        self.r_value3.setValidator(self.onlyInt)
+
+        # self.r_value3 = QtWidgets.QSpinBox(self.opt1_preset3)
+        # self.r_value3.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value3.setFont(label_font)
+        # # self.r_value3.setText("")
+        # self.r_value3.setObjectName("r_value3")
+        # # self.r_value3.setValidator(self.onlyInt)
 
         # t LABEL
         self.t_label3 = QtWidgets.QLabel(self.opt1_preset3)
-        self.t_label3.setGeometry(QtCore.QRect(490, 276, 81, 21))
+        self.t_label3.setGeometry(QtCore.QRect(490, 290, 81, 35))
         self.t_label3.setFont(label_font)
         self.t_label3.setText("")
         self.t_label3.setObjectName("t_label3")
 
         # t VALUE
-        self.t_value3 = QtWidgets.QSpinBox(self.opt1_preset3)
-        self.t_value3.setGeometry(QtCore.QRect(530, 286, 121, 26))
+        self.t_value3 = QtWidgets.QLineEdit(self.opt1_preset3)
+        self.t_value3.setGeometry(QtCore.QRect(530, 292, 121, 35))
         self.t_value3.setFont(label_font)
         self.t_value3.setObjectName("t_value3")
+        self.t_value3.setValidator(self.onlyInt)
+
+        # self.t_value3 = QtWidgets.QSpinBox(self.opt1_preset3)
+        # self.t_value3.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value3.setFont(label_font)
+        # self.t_value3.setObjectName("t_value3")
 
         self.opt1_preset_page.addWidget(self.opt1_preset3)
+
+        ######################
+        ###### PRESET 4 ######
+        ######################
+        self.opt1_preset4 = QtWidgets.QWidget()
+        self.opt1_preset4.setObjectName("opt1_preset4")
+
+        # PI LABEL
+        self.pi_label4 = QtWidgets.QLabel(self.opt1_preset4)
+        self.pi_label4.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label4.setFont(label_font)
+        self.pi_label4.setObjectName("pi_label")
+
+        # PI VALUE
+        self.pi_value4 = QtWidgets.QLabel(self.opt1_preset4)
+        self.pi_value4.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value4.setFont(label_font)
+        self.pi_value4.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value4.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value4.setText("")
+        self.pi_value4.setObjectName("pi_value")
+
+        # r LABEL
+        self.r_label4 = QtWidgets.QLabel(self.opt1_preset4)
+        self.r_label4.setGeometry(QtCore.QRect(490, 240, 81, 35))
+        self.r_label4.setFont(label_font)
+        self.r_label4.setText("")
+        self.r_label4.setObjectName("r_label")
+
+        # r VALUE
+        self.r_value4 = QtWidgets.QLineEdit(self.opt1_preset4)
+        self.r_value4.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value4.setFont(label_font)
+        self.r_value4.setObjectName("r_value")
+        self.r_value4.setValidator(self.onlyInt)
+
+        # self.r_value4 = QtWidgets.QSpinBox(self.opt1_preset4)
+        # self.r_value4.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value4.setFont(label_font)
+        # # self.r_value4.setText("")
+        # self.r_value4.setObjectName("r_value")
+        # # self.r_value4.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label4 = QtWidgets.QLabel(self.opt1_preset4)
+        self.t_label4.setGeometry(QtCore.QRect(395, 290, 215, 35))
+        self.t_label4.setFont(label_font)
+        self.t_label4.setText("")
+        self.t_label4.setObjectName("t_label")
+
+        # t VALUE
+        self.t_value4 = QtWidgets.QLineEdit(self.opt1_preset4)
+        self.t_value4.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        self.t_value4.setFont(label_font)
+        self.t_value4.setObjectName("t_value")
+        self.t_value4.setValidator(self.onlyInt)
+
+        # self.t_value4 = QtWidgets.QDoubleSpinBox(self.opt1_preset4)
+        # self.t_value4.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value4.setFont(label_font)
+        # self.t_value4.setObjectName("t_value")
+
+        self.opt1_preset_page.addWidget(self.opt1_preset4)
+
+        ######################
+        ###### PRESET 5 ######
+        ######################
+        self.opt1_preset5 = QtWidgets.QWidget()
+        self.opt1_preset5.setObjectName("opt1_preset5")
+
+        # PI LABEL
+        self.pi_label5 = QtWidgets.QLabel(self.opt1_preset5)
+        self.pi_label5.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label5.setFont(label_font)
+        self.pi_label5.setObjectName("pi_label5")
+
+        # PI VALUE
+        self.pi_value5 = QtWidgets.QLabel(self.opt1_preset5)
+        self.pi_value5.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value5.setFont(label_font)
+        self.pi_value5.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value5.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value5.setText("")
+        self.pi_value5.setObjectName("pi_value5")
+
+        # r LABEL
+        self.r_label5 = QtWidgets.QLabel(self.opt1_preset5)
+        self.r_label5.setGeometry(QtCore.QRect(490, 240, 81, 35))
+        self.r_label5.setFont(label_font)
+        self.r_label5.setText("")
+        self.r_label5.setObjectName("r_label5")
+
+        # r VALUE
+        self.r_value5 = QtWidgets.QLineEdit(self.opt1_preset5)
+        self.r_value5.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value5.setFont(label_font)
+        self.r_value5.setObjectName("r_value5")
+        self.r_value5.setValidator(self.onlyInt)
+
+        # self.r_value5 = QtWidgets.QSpinBox(self.opt1_preset5)
+        # self.r_value5.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value5.setFont(label_font)
+        # # self.r_value5.setText("")
+        # self.r_value5.setObjectName("r_value5")
+        # # self.r_value5.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label5 = QtWidgets.QLabel(self.opt1_preset5)
+        self.t_label5.setGeometry(QtCore.QRect(395, 290, 215, 35))
+        self.t_label5.setFont(label_font)
+        self.t_label5.setText("")
+        self.t_label5.setObjectName("t_label5")
+
+        # t VALUE
+        self.t_value5 = QtWidgets.QLineEdit(self.opt1_preset5)
+        self.t_value5.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        self.t_value5.setFont(label_font)
+        self.t_value5.setObjectName("t_value5")
+        self.t_value5.setValidator(self.onlyInt)
+
+        # self.t_value5 = QtWidgets.QDoubleSpinBox(self.opt1_preset5)
+        # self.t_value5.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value5.setFont(label_font)
+        # self.t_value5.setObjectName("t_value5")
+
+        self.opt1_preset_page.addWidget(self.opt1_preset5)
+
+        ######################
+        ###### PRESET 6 ######
+        ######################
+        self.opt1_preset6 = QtWidgets.QWidget()
+        self.opt1_preset6.setObjectName("opt1_preset6")
+
+        # PI LABEL
+        self.pi_label6 = QtWidgets.QLabel(self.opt1_preset6)
+        self.pi_label6.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label6.setFont(label_font)
+        self.pi_label6.setObjectName("pi_label6")
+
+        # PI VALUE
+        self.pi_value6 = QtWidgets.QLabel(self.opt1_preset6)
+        self.pi_value6.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value6.setFont(label_font)
+        self.pi_value6.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value6.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value6.setText("")
+        self.pi_value6.setObjectName("pi_value6")
+
+        # r LABEL
+        self.r_label6 = QtWidgets.QLabel(self.opt1_preset6)
+        self.r_label6.setGeometry(QtCore.QRect(490, 240, 81, 35))
+        self.r_label6.setFont(label_font)
+        self.r_label6.setText("")
+        self.r_label6.setObjectName("r_label6")
+
+        # r VALUE
+        self.r_value6 = QtWidgets.QLineEdit(self.opt1_preset6)
+        self.r_value6.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value6.setFont(label_font)
+        self.r_value6.setObjectName("r_value6")
+        self.r_value6.setValidator(self.onlyInt)
+
+        # self.r_value6 = QtWidgets.QSpinBox(self.opt1_preset6)
+        # self.r_value6.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        # self.r_value6.setFont(label_font)
+        # # self.r_value6.setText("")
+        # self.r_value6.setObjectName("r_value6")
+        # # self.r_value6.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label6 = QtWidgets.QLabel(self.opt1_preset6)
+        self.t_label6.setGeometry(QtCore.QRect(395, 290, 215, 35))
+        self.t_label6.setFont(label_font)
+        self.t_label6.setText("")
+        self.t_label6.setObjectName("t_label6")
+
+        # t VALUE
+        self.t_value6 = QtWidgets.QLineEdit(self.opt1_preset6)
+        self.t_value6.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        self.t_value6.setFont(label_font)
+        self.t_value6.setObjectName("t_value6")
+        self.t_value6.setValidator(self.onlyInt)
+
+        # self.t_value6 = QtWidgets.QDoubleSpinBox(self.opt1_preset6)
+        # self.t_value6.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value6.setFont(label_font)
+        # self.t_value6.setObjectName("t_value6")
+
+        self.opt1_preset_page.addWidget(self.opt1_preset6)
+
+        ######################
+        ###### PRESET 7 ######
+        ######################
+        self.opt1_preset7 = QtWidgets.QWidget()
+        self.opt1_preset7.setObjectName("opt1_preset7")
+
+        # PI LABEL
+        self.pi_label7 = QtWidgets.QLabel(self.opt1_preset7)
+        self.pi_label7.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label7.setFont(label_font)
+        self.pi_label7.setObjectName("pi_label7")
+
+        # PI VALUE
+        self.pi_value7 = QtWidgets.QLabel(self.opt1_preset7)
+        self.pi_value7.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value7.setFont(label_font)
+        self.pi_value7.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value7.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value7.setText("")
+        self.pi_value7.setObjectName("pi_value7")
+
+        # r LABEL
+        self.r_label7 = QtWidgets.QLabel(self.opt1_preset7)
+        self.r_label7.setGeometry(QtCore.QRect(395, 240, 215, 35))
+        self.r_label7.setFont(label_font)
+        self.r_label7.setText("")
+        self.r_label7.setObjectName("r_label7")
+
+        # r VALUE
+        self.r_value7 = QtWidgets.QLineEdit(self.opt1_preset7)
+        self.r_value7.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value7.setFont(label_font)
+        self.r_value7.setObjectName("r_value7")
+        self.r_value7.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label7 = QtWidgets.QLabel(self.opt1_preset7)
+        self.t_label7.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        self.t_label7.setFont(label_font)
+        self.t_label7.setText("")
+        self.t_label7.setObjectName("t_label7")
+
+        # t VALUE
+        self.t_value7 = QtWidgets.QLineEdit(self.opt1_preset7)
+        self.t_value7.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        self.t_value7.setFont(label_font)
+        self.t_value7.setObjectName("t_value7")
+        self.t_value7.setValidator(self.onlyInt)
+
+        # self.t_value7 = QtWidgets.QSpinBox(self.opt1_preset7)
+        # self.t_value7.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value7.setFont(label_font)
+        # self.t_value7.setObjectName("t_value7")
+
+        self.opt1_preset_page.addWidget(self.opt1_preset7)
+
+        ######################
+        ###### PRESET 8 ######
+        ######################
+        self.opt1_preset8 = QtWidgets.QWidget()
+        self.opt1_preset8.setObjectName("opt1_preset8")
+
+        # PI LABEL
+        self.pi_label8 = QtWidgets.QLabel(self.opt1_preset8)
+        self.pi_label8.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label8.setFont(label_font)
+        self.pi_label8.setObjectName("pi_label8")
+
+        # PI VALUE
+        self.pi_value8 = QtWidgets.QLabel(self.opt1_preset8)
+        self.pi_value8.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value8.setFont(label_font)
+        self.pi_value8.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value8.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value8.setText("")
+        self.pi_value8.setObjectName("pi_value8")
+
+        # r LABEL
+        self.r_label8 = QtWidgets.QLabel(self.opt1_preset8)
+        self.r_label8.setGeometry(QtCore.QRect(395, 240, 215, 35))
+        self.r_label8.setFont(label_font)
+        self.r_label8.setText("")
+        self.r_label8.setObjectName("r_label8")
+
+        # r VALUE
+        self.r_value8 = QtWidgets.QLineEdit(self.opt1_preset8)
+        self.r_value8.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value8.setFont(label_font)
+        self.r_value8.setObjectName("r_value8")
+        self.r_value8.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label8 = QtWidgets.QLabel(self.opt1_preset8)
+        self.t_label8.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        self.t_label8.setFont(label_font)
+        self.t_label8.setText("")
+        self.t_label8.setObjectName("t_label8")
+
+        # t VALUE
+        self.t_value8 = QtWidgets.QLineEdit(self.opt1_preset8)
+        self.t_value8.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        self.t_value8.setFont(label_font)
+        self.t_value8.setObjectName("t_value8")
+        self.t_value8.setValidator(self.onlyInt)
+
+        # self.t_value8 = QtWidgets.QSpinBox(self.opt1_preset8)
+        # self.t_value8.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value8.setFont(label_font)
+        # self.t_value8.setObjectName("t_value8")
+
+        self.opt1_preset_page.addWidget(self.opt1_preset8)
+
+        ######################
+        ###### PRESET 9 ######
+        ######################
+        self.opt1_preset9 = QtWidgets.QWidget()
+        self.opt1_preset9.setObjectName("opt1_preset9")
+
+        # PI LABEL
+        self.pi_label9 = QtWidgets.QLabel(self.opt1_preset9)
+        self.pi_label9.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label9.setFont(label_font)
+        self.pi_label9.setObjectName("pi_label")
+
+        # PI VALUE
+        self.pi_value9 = QtWidgets.QLabel(self.opt1_preset9)
+        self.pi_value9.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value9.setFont(label_font)
+        self.pi_value9.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value9.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value9.setText("")
+        self.pi_value9.setObjectName("pi_value9")
+
+        # r LABEL
+        self.r_label9 = QtWidgets.QLabel(self.opt1_preset9)
+        self.r_label9.setGeometry(QtCore.QRect(395, 240, 215, 35))
+        self.r_label9.setFont(label_font)
+        self.r_label9.setText("")
+        self.r_label9.setObjectName("r_label9")
+
+        # r VALUE
+        self.r_value9 = QtWidgets.QLineEdit(self.opt1_preset9)
+        self.r_value9.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value9.setFont(label_font)
+        self.r_value9.setObjectName("r_value9")
+        self.r_value9.setValidator(self.onlyInt)
+
+        # t LABEL
+        self.t_label9 = QtWidgets.QLabel(self.opt1_preset9)
+        self.t_label9.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        self.t_label9.setFont(label_font)
+        self.t_label9.setText("")
+        self.t_label9.setObjectName("t_label9")
+
+        # t VALUE
+        self.t_value9 = QtWidgets.QLineEdit(self.opt1_preset9)
+        self.t_value9.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        self.t_value9.setFont(label_font)
+        self.t_value9.setObjectName("t_value9")
+        self.t_value9.setValidator(self.onlyInt)
+
+        # self.t_value9 = QtWidgets.QSpinBox(self.opt1_preset9)
+        # self.t_value9.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value9.setFont(label_font)
+        # self.t_value9.setObjectName("t_value9")
+
+        self.opt1_preset_page.addWidget(self.opt1_preset9)
 
         self.kalkulator_page.addWidget(self.opt1_page)
 
@@ -521,17 +909,38 @@ class OptionWindow(object):
         self.tabung_opt_label.setText(_translate(
             "MainWindow", "PERHITUNGAN TABUNG"))
         self.sub_label0.setText(_translate("MainWindow", "DIKETAHUI"))
+
         self.pi_label0.setText(_translate("MainWindow", "π ="))
         self.pi_label1.setText(_translate("MainWindow", "π ="))
         self.pi_label2.setText(_translate("MainWindow", "π ="))
         self.pi_label3.setText(_translate("MainWindow", "π ="))
+        self.pi_label4.setText(_translate("MainWindow", "π ="))
+        self.pi_label5.setText(_translate("MainWindow", "π ="))
+        self.pi_label6.setText(_translate("MainWindow", "π ="))
+        self.pi_label7.setText(_translate("MainWindow", "π ="))
+        self.pi_label8.setText(_translate("MainWindow", "π ="))
+        self.pi_label9.setText(_translate("MainWindow", "π ="))
+
         self.r_label0.setText(_translate("MainWindow", "r ="))
         self.r_label1.setText(_translate("MainWindow", "r ="))
         self.r_label2.setText(_translate("MainWindow", "r = "))
         self.r_label3.setText(_translate("MainWindow", "r = "))
+        self.r_label4.setText(_translate("MainWindow", "r ="))
+        self.r_label5.setText(_translate("MainWindow", "r = "))
+        self.r_label6.setText(_translate("MainWindow", "r = "))
+        self.r_label7.setText(_translate("MainWindow", "ls_tabung = "))
+        self.r_label8.setText(_translate("MainWindow", "lp_tabung = "))
+        self.r_label9.setText(_translate("MainWindow", "v_tabung = "))
+
         self.t_label1.setText(_translate("MainWindow", "t = "))
         self.t_label2.setText(_translate("MainWindow", "t = "))
         self.t_label3.setText(_translate("MainWindow", "t = "))
+        self.t_label4.setText(_translate("MainWindow", "ls_tabung = "))
+        self.t_label5.setText(_translate("MainWindow", "lp_tabung = "))
+        self.t_label6.setText(_translate("MainWindow", "v_tabung = "))
+        self.t_label7.setText(_translate("MainWindow", "t = "))
+        self.t_label8.setText(_translate("MainWindow", "t = "))
+        self.t_label9.setText(_translate("MainWindow", "t = "))
         self.calculate0.setText(_translate("MainWindow", "HITUNG"))
 
 

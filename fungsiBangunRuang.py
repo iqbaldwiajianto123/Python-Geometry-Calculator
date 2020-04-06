@@ -36,7 +36,7 @@ class BangunRuang:
             output = 2 * PI1 * r * (r+t)
         return output
 
-    def volume_tabung(r, t):
+    def volume_tabung(r=14, t=25):
         if r % 7 == 0:
             output = PI2 * r * r * t
         elif r % 7 != 0:
@@ -126,6 +126,8 @@ class BangunRuang:
 
 
 br = BangunRuang
+# x = br.volume_tabung(14, 25)
+# print(x)
 
 
 class AdvancedBangunRuang:
@@ -164,15 +166,16 @@ class AdvancedBangunRuang:
         #     output = lp_tabung / output
         return output
 
-    def jari_jari_dengan_lp_tabung(lp_tabung):
-        r = int()
-        hasil_sementara = int()
-        while hasil_sementara != lp_tabung:
-            r = random.randint(1, 100)
-            t = random.randint(1, 100)
-            hasil_sementara = br.luas_permukaan_tabung(r, t)
-        else:
-            return r, t
+    def jari_jari_dengan_lp_tabung(t, lp_tabung):
+        output = lp_tabung / 2*PI1*t
+        print(output)
+        # r = int()
+        # hasil_sementara = int()
+        # while hasil_sementara != lp_tabung:
+        #     r = random.randint(1, 100)
+        #     hasil_sementara = br.luas_permukaan_tabung(r, t)
+        # else:
+        return output
 
     def tinggi_dengan_volume_tabung(r, v_tabung):
         t = int()
@@ -224,7 +227,7 @@ class AdvancedBangunRuang:
 
 
 abr = AdvancedBangunRuang
-# x = abr.jari_jari_dengan_volume_kerucut(12, 200.96)
+# x = abr.jari_jari_dengan_lp_tabung(5, 471)
 # print(x)
 
 

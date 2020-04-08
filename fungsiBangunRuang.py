@@ -36,7 +36,7 @@ class BangunRuang:
             output = 2 * PI1 * r * (r+t)
         return output
 
-    def volume_tabung(r=14, t=25):
+    def volume_tabung(r, t):
         if r % 7 == 0:
             output = PI2 * r * r * t
         elif r % 7 != 0:
@@ -45,12 +45,11 @@ class BangunRuang:
         return output
 
     def luas_selimut_kerucut_1(q, s):
-        q = int()
+        output = q/360 * s * s
         if s % 7 == 0:
-            output = q/360 * PI2 * s * s
-        elif s % 7 != 0:
-            output = q/360 * PI1 * s * s
-        return output
+            return f"{output}π"
+        else:
+            return f"{output}π"
 
     def luas_selimut_kerucut_2(r, s):
         if r % 7 == 0:
@@ -60,7 +59,6 @@ class BangunRuang:
         return output
 
     def luas_permukaan_kerucut_1(r, q, s):
-        q = int()
         if r % 7 == 0:
             output = PI2 * r * r + q/360 * PI2 * s * s
         elif r % 7 != 0:
@@ -82,7 +80,6 @@ class BangunRuang:
         return output
 
     def luas_permukaan_bola(r):
-
         if r % 7 == 0:
             output = 4 * PI2 * r * r
         elif r % 7 != 0:
@@ -167,7 +164,14 @@ class AdvancedBangunRuang:
         return output
 
     def jari_jari_dengan_lp_tabung(t, lp_tabung):
-        output = lp_tabung / 2*PI1*t
+        r = int()
+        if lp_tabung % 7 == 0:
+            output = lp_tabung / (2*PI2) * 7
+            output = r*r + t * r - output
+        else:
+            output = lp_tabung / (2*PI1) * 7
+            output = r*r + t * r - output
+
         print(output)
         # r = int()
         # hasil_sementara = int()
@@ -190,15 +194,14 @@ class AdvancedBangunRuang:
 
     def jari_jari_dengan_volume_tabung(t, v_tabung):
         r = int()
-        if t % 7 == 0:
+        if v_tabung % 7 == 0:
             output = PI2 * t
             output = v_tabung / output
             output = math.sqrt(output)
-        elif t % 7 != 0:
+        elif v_tabung % 7 != 0:
             output = PI1 * t
             output = v_tabung / output
             output = math.sqrt(output)
-        output_konversi = output / 1000
         return output
 
     def tinggi_dengan_ls_kerucut(r, ls_tabung):
@@ -227,7 +230,7 @@ class AdvancedBangunRuang:
 
 
 abr = AdvancedBangunRuang
-# x = abr.jari_jari_dengan_lp_tabung(5, 471)
+# x = abr.jari_jari_dengan_ls_tabung(12, 753.6)
 # print(x)
 
 

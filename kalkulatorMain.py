@@ -272,7 +272,7 @@ class Program(QtWidgets.QMainWindow):
 
         # print(self.output_str)
 
-    # defining calling key based from index preset for 3 parameters functions
+   # defining calling key based from index preset for 3 parameters functions
     def calc_method_3(self, key_function):
         if self.k_page == 2:
             self.var_holder_3 = {

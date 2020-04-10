@@ -50,6 +50,8 @@ class Program(QtWidgets.QMainWindow):
             self.on_kalkulator_page_change0)
         self.main_ui.return_button1.clicked.connect(
             self.on_kalkulator_page_change0)
+        self.main_ui.return_button2.clicked.connect(
+            self.on_kalkulator_page_change0)
 
         # initialize on kalkulator page change
         # self.main_ui.kalkulator_page.currentChanged.connect(
@@ -126,13 +128,30 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.t_value19.textChanged.connect(self.on_sbt_value_change)
         ############################## END KE ##############################
 
+        ############################### BOLA ###############################
+        # initialize user r value input
+        self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value21.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value22.textChanged.connect(self.on_sbr_value_change)
+        self.main_ui.r_value23.textChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+        # self.main_ui.r_value20.textChanged.connect(self.on_sbr_value_change)
+
+        ############################## END KE ##############################
+
         # initialize calculate buttons
         self.main_ui.calculate0.clicked.connect(self.calc_checked)
         self.main_ui.calculate1.clicked.connect(self.calc_checked)
+        self.main_ui.calculate2.clicked.connect(self.calc_checked)
 
         # intialize copy button
         self.main_ui.copy_output0.clicked.connect(self.copy_button)
         self.main_ui.copy_output1.clicked.connect(self.copy_button)
+        self.main_ui.copy_output2.clicked.connect(self.copy_button)
 
         # initialize on preset update
         # tabung preset update
@@ -147,6 +166,12 @@ class Program(QtWidgets.QMainWindow):
         self.main_ui.kerucut_preset.currentIndexChanged.connect(
             self.calc_method_track)
 
+        # bola preset update
+        self.main_ui.bola_preset.currentIndexChanged.connect(
+            self.on_opt3_preset_change)
+        self.main_ui.bola_preset.currentIndexChanged.connect(
+            self.calc_method_track)
+
         # initialize event filter
         QtWidgets.qApp.installEventFilter(self)
 
@@ -157,6 +182,10 @@ class Program(QtWidgets.QMainWindow):
     # defining on kerucut preset change
     def on_opt2_preset_change(self, value):
         self.main_ui.opt2_preset_page.setCurrentIndex(value)
+
+    # defining on bola preset change
+    def on_opt3_preset_change(self, value):
+        self.main_ui.opt3_preset_page.setCurrentIndex(value)
 
     # defining copy button
     def copy_button(self):
@@ -218,9 +247,17 @@ class Program(QtWidgets.QMainWindow):
     def calc_method_1(self, key_function):
         self.obj2_value = 0
         self.obj3_value = 0
-        self.var_holder_1 = {
-            0: br.luas_permukaan_lingkaran(r=self.obj1_value),
-        }
+        if self.k_page == 1 or self.k_page == 2:
+            self.var_holder_1 = {
+                0: br.luas_permukaan_lingkaran(r=self.obj1_value),
+            }
+        if self.k_page == 3:
+            self.var_holder_1 = {
+                0: br.luas_permukaan_lingkaran(r=self.obj1_value),
+                1: br.luas_permukaan_bola(r=self.obj1_value),
+                2: br.keliling_bola(r=self.obj1_value),
+                3: br.volume_bola(r=self.obj1_value)
+            }
         self.output_int = self.var_holder_1.get(
             key_function, lambda: "Invalid")
         self.output_str = str(self.output_int)
@@ -230,6 +267,8 @@ class Program(QtWidgets.QMainWindow):
             self.main_ui.output0.setText(self.output_str)
         elif self.k_page == 2:
             self.main_ui.output1.setText(self.output_str)
+        elif self.k_page == 3:
+            self.main_ui.output2.setText(self.output_str)
         else:
             print("Unknown index")
 

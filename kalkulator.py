@@ -897,7 +897,7 @@ class OptionWindow(object):
         self.output1.setFrameShape(QtWidgets.QFrame.Box)
         self.output1.setFrameShadow(QtWidgets.QFrame.Plain)
         self.output1.setText("")
-        self.output1.setObjectName("output0")
+        self.output1.setObjectName("output1")
 
         # COPY BUTTON
         self.copy_output1 = QtWidgets.QPushButton(self.opt2_page)
@@ -924,7 +924,7 @@ class OptionWindow(object):
         self.return_button1.setIcon(icon)
         self.return_button1.setStyleSheet(button_stylesheet)
         self.return_button1.setText("")
-        self.return_button1.setObjectName("return_button0")
+        self.return_button1.setObjectName("return_button1")
 
         # KERUCUT PRESET
         self.kerucut_preset = QtWidgets.QComboBox(self.opt2_page)
@@ -943,16 +943,16 @@ class OptionWindow(object):
         self.kerucut_preset.addItem("")
         self.kerucut_preset.addItem("")
         self.kerucut_preset.addItem("")
-        self.kerucut_preset.addItem("")
-        self.kerucut_preset.addItem("")
-        self.kerucut_preset.addItem("")
-        self.kerucut_preset.addItem("")
+        # self.kerucut_preset.addItem("")
+        # self.kerucut_preset.addItem("")
+        # self.kerucut_preset.addItem("")
+        # self.kerucut_preset.addItem("")
 
         # CALCULATOR TITLE
         self.kerucut_opt_label = QtWidgets.QLabel(self.opt2_page)
         self.kerucut_opt_label.setGeometry(QtCore.QRect(260, 90, 281, 41))
         self.kerucut_opt_label.setFont(title_font)
-        self.kerucut_opt_label.setObjectName("tabung_opt_label")
+        self.kerucut_opt_label.setObjectName("kerucut_opt_label")
 
         self.sub_label1 = QtWidgets.QLabel(self.opt2_page)
         self.sub_label1.setGeometry(QtCore.QRect(350, 210, 141, 31))
@@ -962,7 +962,7 @@ class OptionWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.sub_label1.setFont(font)
-        self.sub_label1.setObjectName("sub_label0")
+        self.sub_label1.setObjectName("sub_label1")
 
         # DEFINING KERUCUT PRESET PAGE
         self.opt2_preset0 = QtWidgets.QWidget()
@@ -1362,6 +1362,457 @@ class OptionWindow(object):
 
         self.kalkulator_page.addWidget(self.opt2_page)
 
+        # BOLA PAGE
+        self.opt3_page = QtWidgets.QWidget()
+        self.opt3_page.setObjectName("opt3_page")
+
+        self.opt3_preset_page = QtWidgets.QStackedWidget(self.opt3_page)
+        self.opt3_preset_page.setGeometry(QtCore.QRect(0, 0, 800, 600))
+        self.opt3_preset_page.setObjectName("opt3_preset_page")
+
+        # OUTPUT
+        self.output2 = QtWidgets.QLabel(self.opt3_page)
+        self.output2.setGeometry(QtCore.QRect(230, 470, 281, 41))
+        self.output2.setFont(button_font)
+        self.output2.setAutoFillBackground(True)
+        self.output2.setFrameShape(QtWidgets.QFrame.Box)
+        self.output2.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.output2.setText("")
+        self.output2.setObjectName("output2")
+
+        # COPY BUTTON
+        self.copy_output2 = QtWidgets.QPushButton(self.opt3_page)
+        self.copy_output2.setGeometry(QtCore.QRect(520, 470, 41, 41))
+        icon = QtGui.QIcon()
+        icon.addFile("H:\Icons\copy-32x32")
+        self.copy_output2.setIcon(icon)
+        self.copy_output2.setStyleSheet(button_stylesheet)
+        self.copy_output2.setText("")
+        self.copy_output2.setObjectName("copy_output2")
+
+        # CALCULATE BUTTON
+        self.calculate2 = QtWidgets.QPushButton(self.opt3_page)
+        self.calculate2.setGeometry(QtCore.QRect(340, 410, 101, 41))
+        self.calculate2.setStyleSheet(button_stylesheet)
+        self.calculate2.setFont(button_font)
+        self.calculate2.setObjectName("calculate2")
+
+        # RETURN BUTTON
+        self.return_button2 = QtWidgets.QPushButton(self.opt3_page)
+        self.return_button2.setGeometry(QtCore.QRect(30, 20, 41, 31))
+        icon = QtGui.QIcon()
+        icon.addFile("H:\Icons\Return_32x32")
+        self.return_button2.setIcon(icon)
+        self.return_button2.setStyleSheet(button_stylesheet)
+        self.return_button2.setText("")
+        self.return_button2.setObjectName("return_button2")
+
+        # BOLA PRESET
+        self.bola_preset = QtWidgets.QComboBox(self.opt3_page)
+        self.bola_preset.setGeometry(QtCore.QRect(210, 150, 381, 41))
+        self.bola_preset.setMaxVisibleItems(4)
+        preset_font = QtGui.QFont()
+        preset_font.setFamily("Quicksand")
+        preset_font.setPointSize(12)
+        preset_font.setBold(True)
+        preset_font.setWeight(75)
+        self.bola_preset.setFont(preset_font)
+        self.bola_preset.setObjectName("kerucut_preset")
+        self.bola_preset.addItem("")
+        self.bola_preset.addItem("")
+        self.bola_preset.addItem("")
+        self.bola_preset.addItem("")
+        # self.bola_preset.addItem("")
+        # self.bola_preset.addItem("")
+        # self.bola_preset.addItem("")
+        # self.bola_preset.addItem("")
+        # self.bola_preset.addItem("")
+        # self.bola_preset.addItem("")
+
+        # CALCULATOR TITLE
+        self.bola_opt_label = QtWidgets.QLabel(self.opt3_page)
+        self.bola_opt_label.setGeometry(QtCore.QRect(260, 90, 281, 41))
+        self.bola_opt_label.setFont(title_font)
+        self.bola_opt_label.setObjectName("bola_opt_label")
+
+        self.sub_label2 = QtWidgets.QLabel(self.opt3_page)
+        self.sub_label2.setGeometry(QtCore.QRect(350, 210, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Quicksand")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.sub_label2.setFont(font)
+        self.sub_label2.setObjectName("sub_label0")
+
+        # DEFINING BOLA PRESET PAGE
+        self.opt3_preset0 = QtWidgets.QWidget()
+        self.opt3_preset0.setObjectName("opt3_preset0")
+        self.opt3_preset1 = QtWidgets.QWidget()
+        self.opt3_preset1.setObjectName("opt3_preset1")
+        self.opt3_preset2 = QtWidgets.QWidget()
+        self.opt3_preset2.setObjectName("opt3_preset2")
+        self.opt3_preset3 = QtWidgets.QWidget()
+        self.opt3_preset3.setObjectName("opt3_preset3")
+        self.opt3_preset4 = QtWidgets.QWidget()
+        self.opt3_preset4.setObjectName("opt3_preset4")
+        self.opt3_preset5 = QtWidgets.QWidget()
+        self.opt3_preset5.setObjectName("opt3_preset5")
+        self.opt3_preset6 = QtWidgets.QWidget()
+        self.opt3_preset6.setObjectName("opt2_preset6")
+        self.opt3_preset7 = QtWidgets.QWidget()
+        self.opt3_preset7.setObjectName("opt3_preset7")
+        self.opt3_preset8 = QtWidgets.QWidget()
+        self.opt3_preset8.setObjectName("opt3_preset8")
+        self.opt3_preset9 = QtWidgets.QWidget()
+        self.opt3_preset9.setObjectName("opt3_preset9")
+
+        # DEFINING KERUCUT PI LABEL
+        # Setting up kerucut pi value label
+        self.pi_label20 = QtWidgets.QLabel(self.opt3_preset0)
+        self.pi_label21 = QtWidgets.QLabel(self.opt3_preset1)
+        self.pi_label22 = QtWidgets.QLabel(self.opt3_preset2)
+        self.pi_label23 = QtWidgets.QLabel(self.opt3_preset3)
+        self.pi_label24 = QtWidgets.QLabel(self.opt3_preset4)
+        self.pi_label25 = QtWidgets.QLabel(self.opt3_preset5)
+        self.pi_label26 = QtWidgets.QLabel(self.opt3_preset6)
+        self.pi_label27 = QtWidgets.QLabel(self.opt3_preset7)
+        self.pi_label28 = QtWidgets.QLabel(self.opt3_preset8)
+        self.pi_label29 = QtWidgets.QLabel(self.opt3_preset9)
+
+        # Setting kerucut pi label geometry
+        self.pi_label20.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label21.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label22.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label23.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label24.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label25.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label26.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label27.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label28.setGeometry(QtCore.QRect(165, 247, 71, 31))
+        self.pi_label29.setGeometry(QtCore.QRect(165, 247, 71, 31))
+
+        # Setting kerucut pi label font
+        self.pi_label20.setFont(label_font)
+        self.pi_label21.setFont(label_font)
+        self.pi_label22.setFont(label_font)
+        self.pi_label23.setFont(label_font)
+        self.pi_label24.setFont(label_font)
+        self.pi_label25.setFont(label_font)
+        self.pi_label26.setFont(label_font)
+        self.pi_label27.setFont(label_font)
+        self.pi_label28.setFont(label_font)
+        self.pi_label29.setFont(label_font)
+
+        # Setting kerucut pi label name
+        self.pi_label20.setObjectName("pi_label20")
+        self.pi_label21.setObjectName("pi_label21")
+        self.pi_label22.setObjectName("pi_label22")
+        self.pi_label23.setObjectName("pi_label23")
+        self.pi_label24.setObjectName("pi_label24")
+        self.pi_label25.setObjectName("pi_label25")
+        self.pi_label26.setObjectName("pi_label26")
+        self.pi_label27.setObjectName("pi_label27")
+        self.pi_label28.setObjectName("pi_label28")
+        self.pi_label29.setObjectName("pi_label29")
+
+        # DEFINING KERUCUT PI VALUE LABEL
+        # Setting up pi value label
+        self.pi_value20 = QtWidgets.QLabel(self.opt3_preset0)
+        self.pi_value21 = QtWidgets.QLabel(self.opt3_preset1)
+        self.pi_value22 = QtWidgets.QLabel(self.opt3_preset2)
+        self.pi_value23 = QtWidgets.QLabel(self.opt3_preset3)
+        self.pi_value24 = QtWidgets.QLabel(self.opt3_preset4)
+        self.pi_value25 = QtWidgets.QLabel(self.opt3_preset5)
+        self.pi_value26 = QtWidgets.QLabel(self.opt3_preset6)
+        self.pi_value27 = QtWidgets.QLabel(self.opt3_preset7)
+        self.pi_value28 = QtWidgets.QLabel(self.opt3_preset8)
+        self.pi_value29 = QtWidgets.QLabel(self.opt3_preset9)
+
+        # Setting kerucut pi value geometry
+        self.pi_value20.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value21.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value22.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value23.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value24.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value25.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value26.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value27.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value28.setGeometry(QtCore.QRect(200, 255, 81, 21))
+        self.pi_value29.setGeometry(QtCore.QRect(200, 255, 81, 21))
+
+        # Setting kerucut pi value font
+        self.pi_value20.setFont(label_font)
+        self.pi_value21.setFont(label_font)
+        self.pi_value22.setFont(label_font)
+        self.pi_value23.setFont(label_font)
+        self.pi_value24.setFont(label_font)
+        self.pi_value25.setFont(label_font)
+        self.pi_value26.setFont(label_font)
+        self.pi_value27.setFont(label_font)
+        self.pi_value28.setFont(label_font)
+        self.pi_value29.setFont(label_font)
+
+        # Setting kerucut pi value border
+        self.pi_value20.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value21.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value22.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value23.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value24.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value25.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value26.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value27.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value28.setFrameShape(QtWidgets.QFrame.Panel)
+        self.pi_value29.setFrameShape(QtWidgets.QFrame.Panel)
+
+        # Setting kerucut pi value border type
+        self.pi_value20.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value21.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value22.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value23.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value24.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value25.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value26.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value27.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value28.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.pi_value29.setFrameShadow(QtWidgets.QFrame.Plain)
+
+        # Setting kerucut pi value object name
+        self.pi_value20.setObjectName("pi_value20")
+        self.pi_value21.setObjectName("pi_value21")
+        self.pi_value22.setObjectName("pi_value22")
+        self.pi_value23.setObjectName("pi_value23")
+        self.pi_value24.setObjectName("pi_value24")
+        self.pi_value25.setObjectName("pi_value25")
+        self.pi_value26.setObjectName("pi_value26")
+        self.pi_value27.setObjectName("pi_value27")
+        self.pi_value28.setObjectName("pi_value28")
+        self.pi_value29.setObjectName("pi_value29")
+
+        # DEFINING KERUCUT R LABEL VALUE
+        # Setting up kerucut r label
+        self.r_label20 = QtWidgets.QLabel(self.opt3_preset0)
+        self.r_label21 = QtWidgets.QLabel(self.opt3_preset1)
+        self.r_label22 = QtWidgets.QLabel(self.opt3_preset2)
+        self.r_label23 = QtWidgets.QLabel(self.opt3_preset3)
+        self.r_label24 = QtWidgets.QLabel(self.opt3_preset4)
+        self.r_label25 = QtWidgets.QLabel(self.opt3_preset5)
+        self.r_label26 = QtWidgets.QLabel(self.opt3_preset6)
+        self.r_label27 = QtWidgets.QLabel(self.opt3_preset7)
+        self.r_label28 = QtWidgets.QLabel(self.opt3_preset8)
+        self.r_label29 = QtWidgets.QLabel(self.opt3_preset9)
+
+        # Setting kerucut r label geometry
+        self.r_label20.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label21.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label22.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label23.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label24.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label25.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label26.setGeometry(QtCore.QRect(490, 245, 121, 35))
+        self.r_label27.setGeometry(QtCore.QRect(395, 240, 215, 35))
+        self.r_label28.setGeometry(QtCore.QRect(395, 240, 215, 35))
+        self.r_label29.setGeometry(QtCore.QRect(395, 240, 215, 35))
+
+        # Setting kerucut r label font
+        self.r_label20.setFont(label_font)
+        self.r_label21.setFont(label_font)
+        self.r_label22.setFont(label_font)
+        self.r_label23.setFont(label_font)
+        self.r_label24.setFont(label_font)
+        self.r_label25.setFont(label_font)
+        self.r_label26.setFont(label_font)
+        self.r_label27.setFont(label_font)
+        self.r_label28.setFont(label_font)
+        self.r_label29.setFont(label_font)
+
+        # Setting kerucut r label name
+        self.r_label20.setObjectName("r_label20")
+        self.r_label21.setObjectName("r_label21")
+        self.r_label22.setObjectName("r_label22")
+        self.r_label23.setObjectName("r_label23")
+        self.r_label24.setObjectName("r_label24")
+        self.r_label25.setObjectName("r_label25")
+        self.r_label26.setObjectName("r_label26")
+        self.r_label27.setObjectName("r_label27")
+        self.r_label28.setObjectName("r_label28")
+        self.r_label29.setObjectName("r_label29")
+
+        # DEFINING KERUCUT R VALUE INPUT
+        # Setting up kerucut r value input
+        self.r_value20 = QtWidgets.QLineEdit(self.opt3_preset0)
+        self.r_value21 = QtWidgets.QLineEdit(self.opt3_preset1)
+        self.r_value22 = QtWidgets.QLineEdit(self.opt3_preset2)
+        self.r_value23 = QtWidgets.QLineEdit(self.opt3_preset3)
+        self.r_value24 = QtWidgets.QLineEdit(self.opt3_preset4)
+        self.r_value25 = QtWidgets.QLineEdit(self.opt3_preset5)
+        self.r_value26 = QtWidgets.QLineEdit(self.opt3_preset6)
+        self.r_value27 = QtWidgets.QLineEdit(self.opt3_preset7)
+        self.r_value28 = QtWidgets.QLineEdit(self.opt3_preset8)
+        self.r_value29 = QtWidgets.QLineEdit(self.opt3_preset9)
+
+        # Setting kerucut r value input geometry
+        self.r_value20.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value21.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value22.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value23.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value24.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value25.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value26.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value27.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value28.setGeometry(QtCore.QRect(530, 245, 121, 35))
+        self.r_value29.setGeometry(QtCore.QRect(530, 245, 121, 35))
+
+        # Setting kerucut r value input font
+        self.r_value20.setFont(label_font)
+        self.r_value21.setFont(label_font)
+        self.r_value22.setFont(label_font)
+        self.r_value23.setFont(label_font)
+        self.r_value24.setFont(label_font)
+        self.r_value25.setFont(label_font)
+        self.r_value26.setFont(label_font)
+        self.r_value27.setFont(label_font)
+        self.r_value28.setFont(label_font)
+        self.r_value29.setFont(label_font)
+
+        # Setting kerucut r value input object name
+        self.r_value20.setObjectName("r_value10")
+        self.r_value21.setObjectName("r_value11")
+        self.r_value22.setObjectName("r_value12")
+        self.r_value23.setObjectName("r_value13")
+        self.r_value24.setObjectName("r_value14")
+        self.r_value25.setObjectName("r_value15")
+        self.r_value26.setObjectName("r_value16")
+        self.r_value27.setObjectName("r_value17")
+        self.r_value28.setObjectName("r_value18")
+        self.r_value29.setObjectName("r_value19")
+
+        # Setting kerucut r value input validator
+        self.r_value20.setValidator(self.onlyInt)
+        self.r_value21.setValidator(self.onlyInt)
+        self.r_value22.setValidator(self.onlyInt)
+        self.r_value23.setValidator(self.onlyInt)
+        self.r_value24.setValidator(self.onlyInt)
+        self.r_value25.setValidator(self.onlyInt)
+        self.r_value26.setValidator(self.onlyInt)
+        self.r_value27.setValidator(self.onlyInt)
+        self.r_value28.setValidator(self.onlyInt)
+        self.r_value29.setValidator(self.onlyInt)
+
+        # # DEFINING BOLA T VALUE LABEL
+        # # Setting bola t value label
+        # self.t_label21 = QtWidgets.QLabel(self.opt3_preset1)
+        # self.t_label22 = QtWidgets.QLabel(self.opt3_preset2)
+        # self.t_label23 = QtWidgets.QLabel(self.opt3_preset3)
+        # self.t_label24 = QtWidgets.QLabel(self.opt3_preset4)
+        # self.t_label25 = QtWidgets.QLabel(self.opt3_preset5)
+        # self.t_label26 = QtWidgets.QLabel(self.opt3_preset6)
+        # self.t_label27 = QtWidgets.QLabel(self.opt3_preset7)
+        # self.t_label28 = QtWidgets.QLabel(self.opt3_preset8)
+        # self.t_label29 = QtWidgets.QLabel(self.opt3_preset9)
+
+        # # Setting bola t value label geometry
+        # self.t_label21.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        # self.t_label22.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        # self.t_label23.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        # self.t_label24.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        # self.t_label25.setGeometry(QtCore.QRect(490, 290, 200, 35))
+        # self.t_label26.setGeometry(QtCore.QRect(395, 290, 215, 35))
+        # self.t_label27.setGeometry(QtCore.QRect(395, 290, 215, 35))
+        # self.t_label28.setGeometry(QtCore.QRect(395, 290, 215, 35))
+        # self.t_label29.setGeometry(QtCore.QRect(490, 290, 200, 35))
+
+        # # Setting bola t value label font
+        # self.t_label21.setFont(label_font)
+        # self.t_label22.setFont(label_font)
+        # self.t_label23.setFont(label_font)
+        # self.t_label24.setFont(label_font)
+        # self.t_label25.setFont(label_font)
+        # self.t_label26.setFont(label_font)
+        # self.t_label27.setFont(label_font)
+        # self.t_label28.setFont(label_font)
+        # self.t_label29.setFont(label_font)
+
+        # # Setting bola t value label object name
+        # self.t_label21.setObjectName("t_label21")
+        # self.t_label22.setObjectName("t_label22")
+        # self.t_label23.setObjectName("t_label23")
+        # self.t_label24.setObjectName("t_label24")
+        # self.t_label25.setObjectName("t_label25")
+        # self.t_label26.setObjectName("t_label26")
+        # self.t_label27.setObjectName("t_label27")
+        # self.t_label28.setObjectName("t_label28")
+        # self.t_label29.setObjectName("t_label29")
+
+        # # DEFINING KERUCUT T VALUE INPUT
+        # # Setting bola t value input
+        # self.t_value21 = QtWidgets.QLineEdit(self.opt3_preset1)
+        # self.t_value22 = QtWidgets.QLineEdit(self.opt3_preset2)
+        # self.t_value23 = QtWidgets.QLineEdit(self.opt3_preset3)
+        # self.t_value24 = QtWidgets.QLineEdit(self.opt3_preset4)
+        # self.t_value25 = QtWidgets.QLineEdit(self.opt3_preset5)
+        # self.t_value26 = QtWidgets.QLineEdit(self.opt3_preset6)
+        # self.t_value27 = QtWidgets.QLineEdit(self.opt3_preset7)
+        # self.t_value28 = QtWidgets.QLineEdit(self.opt3_preset8)
+        # self.t_value29 = QtWidgets.QLineEdit(self.opt3_preset9)
+
+        # # Setting bola t value input geometry
+        # self.t_value21.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value22.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value23.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value24.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value25.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value26.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value27.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value28.setGeometry(QtCore.QRect(530, 292, 121, 35))
+        # self.t_value29.setGeometry(QtCore.QRect(530, 292, 121, 35))
+
+        # # Setting kerucut t value input font
+        # self.t_value21.setFont(label_font)
+        # self.t_value22.setFont(label_font)
+        # self.t_value23.setFont(label_font)
+        # self.t_value24.setFont(label_font)
+        # self.t_value25.setFont(label_font)
+        # self.t_value26.setFont(label_font)
+        # self.t_value27.setFont(label_font)
+        # self.t_value28.setFont(label_font)
+        # self.t_value29.setFont(label_font)
+
+        # # Setting bola t value input object name
+        # self.t_value21.setObjectName("t_value21")
+        # self.t_value22.setObjectName("t_value22")
+        # self.t_value23.setObjectName("t_value23")
+        # self.t_value24.setObjectName("t_value24")
+        # self.t_value25.setObjectName("t_value25")
+        # self.t_value26.setObjectName("t_value26")
+        # self.t_value27.setObjectName("t_value27")
+        # self.t_value28.setObjectName("t_value28")
+        # self.t_value29.setObjectName("t_value29")
+
+        # # Setting bola t value input validator
+        # self.t_value21.setValidator(self.onlyInt)
+        # self.t_value22.setValidator(self.onlyInt)
+        # self.t_value23.setValidator(self.onlyInt)
+        # self.t_value24.setValidator(self.onlyInt)
+        # self.t_value25.setValidator(self.onlyInt)
+        # self.t_value26.setValidator(self.onlyInt)
+        # self.t_value27.setValidator(self.onlyInt)
+        # self.t_value28.setValidator(self.onlyInt)
+        # self.t_value29.setValidator(self.onlyInt)
+
+        self.opt3_preset_page.addWidget(self.opt3_preset0)
+        self.opt3_preset_page.addWidget(self.opt3_preset1)
+        self.opt3_preset_page.addWidget(self.opt3_preset2)
+        self.opt3_preset_page.addWidget(self.opt3_preset3)
+        self.opt3_preset_page.addWidget(self.opt3_preset4)
+        self.opt3_preset_page.addWidget(self.opt3_preset5)
+        self.opt3_preset_page.addWidget(self.opt3_preset6)
+        self.opt3_preset_page.addWidget(self.opt3_preset7)
+        self.opt3_preset_page.addWidget(self.opt3_preset8)
+        self.opt3_preset_page.addWidget(self.opt3_preset9)
+
+        self.kalkulator_page.addWidget(self.opt3_page)
+
         # CENTRAL WIDGETS
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -1421,20 +1872,29 @@ class OptionWindow(object):
             4, _translate("MainWindow", "LUAS PERMUKAAN KERUCUT 2"))
         self.kerucut_preset.setItemText(
             5, _translate("MainWindow", "VOLUME KERUCUT"))
-        self.kerucut_preset.setItemText(6, _translate(
-            "MainWindow", "TINGGI DENGAN LUAS SELIMUT KERUCUT"))
-        self.kerucut_preset.setItemText(7, _translate(
-            "MainWindow", "TINGGI DENGAN LUAS PERMUKAAN KERUCUT"))
-        self.kerucut_preset.setItemText(8, _translate(
-            "MainWindow", "TINGGI DENGAN VOLUME KERUCUT"))
-        self.kerucut_preset.setItemText(9, _translate(
-            "MainWindow", "JARI-JARI DENGAN LUAS SELIMUT KERUCUT"))
-        self.kerucut_preset.setItemText(10, _translate(
-            "MainWindow", "JARI-JARI DENGAN LUAS PERMUKAAN KERUCUT"))
-        self.kerucut_preset.setItemText(11, _translate(
-            "MainWindow", "JARI-JARI DENGAN VOLUME KERUCUT"))
+        # self.kerucut_preset.setItemText(6, _translate(
+        #     "MainWindow", "TINGGI DENGAN LUAS SELIMUT KERUCUT"))
+        # self.kerucut_preset.setItemText(7, _translate(
+        #     "MainWindow", "TINGGI DENGAN LUAS PERMUKAAN KERUCUT"))
+        # self.kerucut_preset.setItemText(8, _translate(
+        #     "MainWindow", "TINGGI DENGAN VOLUME KERUCUT"))
+        # self.kerucut_preset.setItemText(9, _translate(
+        #     "MainWindow", "JARI-JARI DENGAN LUAS SELIMUT KERUCUT"))
+        # self.kerucut_preset.setItemText(10, _translate(
+        #     "MainWindow", "JARI-JARI DENGAN LUAS PERMUKAAN KERUCUT"))
+        # self.kerucut_preset.setItemText(11, _translate(
+        #     "MainWindow", "JARI-JARI DENGAN VOLUME KERUCUT"))
         self.kerucut_opt_label.setText(
             _translate("MainWindow", "PERHITUNGAN KERUCUT"))
+
+        self.bola_preset.setItemText(0, _translate(
+            "MainWindow", "LUAS PERMUKAAN LINGKARAN"))
+        self.bola_preset.setItemText(1, _translate(
+            "MainWindow", "LUAS PERMUKAAN BOLA"))
+        self.bola_preset.setItemText(
+            2, _translate("MainWindow", "KELILING BOLA"))
+        self.bola_preset.setItemText(
+            3, _translate("MainWindow", "VOLUME BOLA"))
 
         self.sub_label0.setText(_translate("MainWindow", "DIKETAHUI"))
         self.sub_label1.setText(_translate("MainWindow", "DIKETAHUI"))
@@ -1514,8 +1974,44 @@ class OptionWindow(object):
         # KERUCUT S LABEL
         self.s_label13.setText(_translate("MainWindow", "s ="))
 
+        # BOLA PI LABEL
+        self.pi_label20.setText(_translate("MainWindow", "π ="))
+        self.pi_label21.setText(_translate("MainWindow", "π ="))
+        self.pi_label22.setText(_translate("MainWindow", "π ="))
+        self.pi_label23.setText(_translate("MainWindow", "π ="))
+        self.pi_label24.setText(_translate("MainWindow", "π ="))
+        self.pi_label25.setText(_translate("MainWindow", "π ="))
+        self.pi_label26.setText(_translate("MainWindow", "π ="))
+        self.pi_label27.setText(_translate("MainWindow", "π ="))
+        self.pi_label28.setText(_translate("MainWindow", "π ="))
+        self.pi_label29.setText(_translate("MainWindow", "π ="))
+
+        # BOLA R LABEL
+        self.r_label20.setText(_translate("MainWindow", "r ="))
+        self.r_label21.setText(_translate("MainWindow", "r ="))
+        self.r_label22.setText(_translate("MainWindow", "r ="))
+        self.r_label23.setText(_translate("MainWindow", "r ="))
+        self.r_label24.setText(_translate("MainWindow", "r ="))
+        self.r_label25.setText(_translate("MainWindow", "r ="))
+        self.r_label26.setText(_translate("MainWindow", "r ="))
+        self.r_label27.setText(_translate("MainWindow", "ls_kerucut ="))
+        self.r_label28.setText(_translate("MainWindow", "lp_kerucut ="))
+        self.r_label29.setText(_translate("MainWindow", "v_kerucut ="))
+
+        # BOLA T LABEL
+        # self.t_label21.setText(_translate("MainWindow", "s ="))
+        # self.t_label22.setText(_translate("MainWindow", "s ="))
+        # self.t_label23.setText(_translate("MainWindow", "q ="))
+        # self.t_label24.setText(_translate("MainWindow", "s ="))
+        # self.t_label25.setText(_translate("MainWindow", "t ="))
+        # self.t_label26.setText(_translate("MainWindow", "ls_kerucut ="))
+        # self.t_label27.setText(_translate("MainWindow", "lp_kerucut ="))
+        # self.t_label28.setText(_translate("MainWindow", "v_kerucut ="))
+        # self.t_label29.setText(_translate("MainWindow", "t ="))
+
         self.calculate0.setText(_translate("MainWindow", "HITUNG"))
         self.calculate1.setText(_translate("MainWindow", "HITUNG"))
+        self.calculate2.setText(_translate("MainWindow", "HITUNG"))
 
 
 if __name__ == "__main__":

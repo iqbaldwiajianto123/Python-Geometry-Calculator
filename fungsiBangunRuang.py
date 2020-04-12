@@ -95,9 +95,11 @@ class BangunRuang:
 
     def volume_bola(r):
         if r % 7 == 0:
-            output = 4 * 1/3 * PI2 * r * r * r
+            output = PI2 * r * r * r
+            output *= 4/3
         elif r % 7 != 0:
-            output = 4 * 1/3 * PI1 * r * r * r
+            output = PI1 * r * r * r
+            output *= 4/3
         return output
 
     def luas_permukaan_kubus(s):
@@ -123,7 +125,7 @@ class BangunRuang:
 
 
 br = BangunRuang
-# x = br.volume_tabung(14, 25)
+# x = br.volume_bola(10)
 # print(x)
 
 

@@ -1895,6 +1895,7 @@ class OptionWindow(object):
             2, _translate("MainWindow", "KELILING BOLA"))
         self.bola_preset.setItemText(
             3, _translate("MainWindow", "VOLUME BOLA"))
+        self.bola_opt_label.setText(_translate("MainWindow", "PERHITUNGAN BOLA"))
 
         self.sub_label0.setText(_translate("MainWindow", "DIKETAHUI"))
         self.sub_label1.setText(_translate("MainWindow", "DIKETAHUI"))

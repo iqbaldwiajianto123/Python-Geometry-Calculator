@@ -9,4 +9,4 @@ Calculator that able to calculate geometry object such as Tube, Cone, and Ball
 * [severusDude](https://github.com/severusDude)
 
 ## License
-This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE.md](https://github.com/severusDude/Python-UUID-Generator/blob/master/LICENSE) file for details
